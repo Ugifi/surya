@@ -555,7 +555,7 @@ export default function App() {
             ? <div className="back-btn" onClick={goBack} style={{ color:'#fff', fontSize:26, cursor:'pointer', padding:'4px 8px 4px 0' }}>‹</div>
             : <div className="hamburger" onClick={() => setDrawer(true)}><span/><span/><span/></div>
           }
-          <span className="brand">{isSubPage ? (navTitle || 'BACK') : 'SATKA MATKA'}</span>
+          <span className="brand">{isSubPage ? (navTitle || 'BACK') : 'BADSHAH KHAIWAL'}</span>
         </div>
         <div className="tn-right">
           {!isTxnTab && (

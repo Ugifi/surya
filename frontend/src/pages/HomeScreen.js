@@ -320,7 +320,7 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate }) 
         {/* ADD / WITHDRAW */}
         <div className="hs-action-row">
           <button onClick={onAdd} className="hs-btn hs-btn-add">
-            <span style={{ fontSize: 20 }}>🎒</span> ADD MONEY
+            <span style={{ fontSize: 20 }}></span> ADD MONEY
           </button>
           <button onClick={onWith} className="hs-btn hs-btn-wdr">
             <span style={{ fontSize: 20 }}>💳</span> WITHDRAW

@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 
-// ── Shared blue/white styles ──
+// ── PREMIUM DARK THEME SHARED STYLES ──
 const B = {
-  page:      { background: '#f0f4ff', minHeight: '100vh', paddingBottom: 80 },
-  header:    { background: 'linear-gradient(135deg,#1565C0,#1E88E5)', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12, borderBottom: '3px solid #0D47A1', position: 'sticky', top: 0, zIndex: 10 },
-  headerTxt: { fontSize: 16, fontWeight: 800, color: '#fff', letterSpacing: 1 },
-  card:      { background: '#fff', borderRadius: 14, border: '1.5px solid #E3EAFF', boxShadow: '0 2px 10px rgba(30,136,229,0.08)', margin: '12px', padding: '16px' },
-  label:     { fontSize: 10, color: '#1565C0', fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 4, display: 'block' },
-  input:     { width: '100%', background: '#F8FBFF', border: '2px solid #BBDEFB', borderRadius: 10, padding: '11px 14px', color: '#1A237E', fontSize: 15, outline: 'none', marginBottom: 12, boxSizing: 'border-box', fontFamily: 'inherit' },
-  btn:       { width: '100%', background: 'linear-gradient(135deg,#1565C0,#1E88E5)', color: '#fff', border: 'none', borderRadius: 12, padding: 14, fontSize: 15, fontWeight: 800, cursor: 'pointer', letterSpacing: 2, textTransform: 'uppercase', boxShadow: '0 4px 14px rgba(30,136,229,0.3)' },
-  badge:     (color) => ({ display: 'inline-block', padding: '3px 10px', borderRadius: 20, fontSize: 11, fontWeight: 700, background: color === 'green' ? '#E8F5E9' : color === 'red' ? '#FFEBEE' : '#FFF3E0', color: color === 'green' ? '#2E7D32' : color === 'red' ? '#C62828' : '#E65100' }),
+  page:      { background: '#0B192C', minHeight: '100vh', paddingBottom: 80, color: '#fff', fontFamily: '"Segoe UI", sans-serif' },
+  header:    { background: '#0B192C', padding: '16px', display: 'flex', alignItems: 'center', gap: 12, borderBottom: '1px solid rgba(255,255,255,0.08)', position: 'sticky', top: 0, zIndex: 10 },
+  headerTxt: { fontSize: 18, fontWeight: 900, color: '#ffffff', letterSpacing: 1.5, textShadow: '0 2px 10px rgba(0,0,0,0.5)' },
+  card:      { background: '#162846', borderRadius: 16, border: '1.5px solid #233A5E', boxShadow: '0 8px 25px rgba(0,0,0,0.3)', margin: '12px', padding: '16px' },
+  label:     { fontSize: 11, color: '#90CAF9', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 6, display: 'block', marginLeft: 4 },
+  input:     { width: '100%', background: '#0B192C', border: '2px solid #233A5E', borderRadius: 12, padding: '14px', color: '#fff', fontSize: 15, fontWeight: 600, outline: 'none', marginBottom: 16, boxSizing: 'border-box', transition: 'border 0.2s', fontFamily: 'inherit' },
+  btn:       { width: '100%', background: 'linear-gradient(135deg, #1565C0 0%, #1976D2 100%)', color: '#fff', border: 'none', borderRadius: 14, padding: 16, fontSize: 15, fontWeight: 800, cursor: 'pointer', letterSpacing: 1.5, textTransform: 'uppercase', boxShadow: '0 6px 20px rgba(21,101,192,0.3)' },
+  badge:     (color) => ({ display: 'inline-block', padding: '4px 12px', borderRadius: 20, fontSize: 10, fontWeight: 800, textTransform: 'uppercase', background: color === 'green' ? 'rgba(46,125,50,0.2)' : color === 'red' ? 'rgba(198,40,40,0.2)' : 'rgba(230,81,0,0.2)', color: color === 'green' ? '#81C784' : color === 'red' ? '#E57373' : '#FFB74D' }),
 };
 
 function SubHeader({ title, onBack, rightBtn }) {
   return (
     <div style={B.header}>
-      {onBack && <div onClick={onBack} style={{ fontSize: 26, cursor: 'pointer', color: '#fff', lineHeight: 1, fontWeight: 300 }}>‹</div>}
+      {onBack && <div onClick={onBack} style={{ fontSize: 26, cursor: 'pointer', color: '#fff', lineHeight: 1, fontWeight: 300, textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>‹</div>}
       <div style={{ ...B.headerTxt, flex: 1 }}>{title}</div>
       {rightBtn}
     </div>
@@ -33,7 +33,7 @@ export function BidsPage({ apiCall }) {
       apiCall('/api/games/bids/my').then(res => {
         if (res.success) {
             if (res.bids) setBids(res.bids);
-            if (res.summary) setSummary(res.summary); // Backend wali real summary save karo
+            if (res.summary) setSummary(res.summary);
         }
         setLoading(false);
       }).catch(() => setLoading(false));
@@ -43,10 +43,10 @@ export function BidsPage({ apiCall }) {
   const winAmt = Number(summary.total_win_amount || 0);
 
   const statCards = [
-    { icon: '🎯', val: summary.total_bids || 0,    label: 'Total Bids',  color: '#1565C0' },
-    { icon: '🏆', val: summary.won_bids || 0,      label: 'Won',         color: '#2E7D32' },
-    { icon: '💔', val: summary.lost_bids || 0,     label: 'Lost',        color: '#C62828' },
-    { icon: '⏳', val: summary.pending_bids || 0,  label: 'Pending',     color: '#E65100' },
+    { icon: '🎯', val: summary.total_bids || 0,    label: 'Total Bids',  color: '#90CAF9' },
+    { icon: '🏆', val: summary.won_bids || 0,      label: 'Won',         color: '#81C784' },
+    { icon: '💔', val: summary.lost_bids || 0,     label: 'Lost',        color: '#E57373' },
+    { icon: '⏳', val: summary.pending_bids || 0,  label: 'Pending',     color: '#FFB74D' },
   ];
 
   return (
@@ -56,41 +56,41 @@ export function BidsPage({ apiCall }) {
       {/* Stats */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, padding: '12px 12px 0' }}>
         {statCards.map((s, i) => (
-          <div key={i} style={{ background: '#fff', borderRadius: 12, padding: '14px', border: '1.5px solid #E3EAFF', borderTop: `3px solid ${s.color}`, boxShadow: '0 2px 8px rgba(30,136,229,0.07)', textAlign: 'center' }}>
+          <div key={i} style={{ background: '#162846', borderRadius: 14, padding: '14px', border: '1.5px solid #233A5E', borderTop: `3px solid ${s.color}`, boxShadow: '0 4px 15px rgba(0,0,0,0.2)', textAlign: 'center' }}>
             <div style={{ fontSize: 22, marginBottom: 4 }}>{s.icon}</div>
             <div style={{ fontSize: 22, fontWeight: 900, color: s.color }}>{s.val}</div>
-            <div style={{ fontSize: 10, color: '#888', textTransform: 'uppercase', letterSpacing: 1, marginTop: 2 }}>{s.label}</div>
+            <div style={{ fontSize: 10, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: 1, marginTop: 2 }}>{s.label}</div>
           </div>
         ))}
       </div>
 
       {/* Total winnings */}
-      <div style={{ margin: '10px 12px 0', background: '#E8F5E9', border: '1.5px solid #A5D6A7', borderRadius: 12, padding: '12px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ color: '#2E7D32', fontWeight: 700, fontSize: 14 }}>💰 Total Winnings</span>
-        <span style={{ color: '#1B5E20', fontWeight: 900, fontSize: 18 }}>₹{winAmt.toLocaleString('en-IN')}</span>
+      <div style={{ margin: '10px 12px 0', background: 'rgba(46, 125, 50, 0.15)', border: '1.5px solid rgba(46, 125, 50, 0.4)', borderRadius: 14, padding: '14px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ color: '#81C784', fontWeight: 800, fontSize: 14 }}>💰 Total Winnings</span>
+        <span style={{ color: '#A5D6A7', fontWeight: 900, fontSize: 18 }}>₹{winAmt.toLocaleString('en-IN')}</span>
       </div>
 
       {/* Bids list */}
-      <div style={{ padding: '12px 12px 0', fontSize: 12, fontWeight: 800, color: '#1565C0', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 0 }}>🎮 Recent Bids</div>
+      <div style={{ padding: '16px 12px 8px', fontSize: 12, fontWeight: 800, color: '#90CAF9', textTransform: 'uppercase', letterSpacing: 1.5 }}>🎮 Recent Bids</div>
       {loading ? (
-        <div style={{ textAlign: 'center', padding: 50, color: '#90CAF9' }}>⏳ Loading bids...</div>
+        <div style={{ textAlign: 'center', padding: 50, color: '#64748B' }}>⏳ Loading bids...</div>
       ) : bids.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: 50, color: '#aaa' }}>📭 No bids yet</div>
+        <div style={{ textAlign: 'center', padding: 50, color: '#64748B' }}>📭 No bids yet</div>
       ) : (
-        <div style={{ padding: '8px 12px' }}>
+        <div style={{ padding: '0 12px' }}>
           {bids.map(b => {
             const amount = Number(b.amount || 0);
             const winning = Number(b.win_amount || b.potential_winning || 0);
-            const clr = b.status === 'win' ? '#2E7D32' : b.status === 'loss' ? '#C62828' : '#E65100';
+            const clr = b.status === 'win' ? '#81C784' : b.status === 'loss' ? '#E57373' : '#FFB74D';
             return (
-              <div key={b.id} style={{ background: '#fff', borderRadius: 12, padding: '12px 14px', marginBottom: 8, border: '1.5px solid #E3EAFF', display: 'flex', alignItems: 'center', gap: 12, boxShadow: '0 1px 6px rgba(30,136,229,0.06)', borderLeft: `3px solid ${clr}` }}>
-                <div style={{ width: 36, height: 36, background: '#E3F2FD', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>🎯</div>
+              <div key={b.id} style={{ background: '#162846', borderRadius: 14, padding: '14px', marginBottom: 10, border: '1.5px solid #233A5E', display: 'flex', alignItems: 'center', gap: 12, boxShadow: '0 4px 15px rgba(0,0,0,0.2)', borderLeft: `4px solid ${clr}` }}>
+                <div style={{ width: 40, height: 40, background: '#1E3A68', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>🎯</div>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: '#1A237E', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{b.game_name} — {b.game_type}</div>
-                  <div style={{ fontSize: 11, color: '#888', marginTop: 2 }}>#{b.number} · {new Date(b.created_at).toLocaleString('en-IN')}</div>
+                  <div style={{ fontWeight: 800, fontSize: 14, color: '#ffffff', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{b.game_name} — {b.game_type}</div>
+                  <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 3 }}>#{b.number} · {new Date(b.created_at).toLocaleString('en-IN')}</div>
                 </div>
                 <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                  <div style={{ fontWeight: 800, fontSize: 14, color: clr }}>
+                  <div style={{ fontWeight: 900, fontSize: 15, color: clr, marginBottom: 4 }}>
                     {b.status === 'win' ? `+₹${winning.toLocaleString('en-IN')}` : `₹${amount.toLocaleString('en-IN')}`}
                   </div>
                   <span style={B.badge(b.status === 'win' ? 'green' : b.status === 'loss' ? 'red' : 'orange')}>{b.status?.toUpperCase()}</span>
@@ -141,34 +141,34 @@ export function TxnsPage({ apiCall, navigate }) {
         title="💳 Transactions"
         onBack={navigate ? () => navigate('wallet') : null}
         rightBtn={
-          <button onClick={fetchTxns} style={{ background: 'rgba(255,255,255,0.2)', border: '1px solid rgba(255,255,255,0.4)', color: '#fff', padding: '6px 12px', borderRadius: 8, cursor: 'pointer', fontSize: 12, fontWeight: 700 }}>🔄</button>
+          <button onClick={fetchTxns} style={{ background: '#162846', border: '1px solid #233A5E', color: '#90CAF9', padding: '8px 12px', borderRadius: 10, cursor: 'pointer', fontSize: 14, fontWeight: 700 }}>🔄</button>
         }
       />
 
       {/* Summary */}
       {!loading && txns.length > 0 && (
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, padding: '12px 12px 0' }}>
-          <div style={{ background: '#fff', borderRadius: 12, padding: '12px 14px', borderLeft: '3px solid #2E7D32', border: '1.5px solid #E3EAFF', borderLeftWidth: 3, boxShadow: '0 1px 6px rgba(30,136,229,0.07)' }}>
-            <div style={{ fontSize: 10, color: '#aaa', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 4 }}>Total Credit</div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: '#2E7D32' }}>+₹{totalCredit.toLocaleString('en-IN')}</div>
+          <div style={{ background: '#162846', borderRadius: 14, padding: '14px', border: '1.5px solid #233A5E', borderLeft: '4px solid #81C784', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+            <div style={{ fontSize: 10, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 4 }}>Total Credit</div>
+            <div style={{ fontSize: 16, fontWeight: 900, color: '#81C784' }}>+₹{totalCredit.toLocaleString('en-IN')}</div>
           </div>
-          <div style={{ background: '#fff', borderRadius: 12, padding: '12px 14px', borderLeft: '3px solid #C62828', border: '1.5px solid #E3EAFF', borderLeftWidth: 3, boxShadow: '0 1px 6px rgba(30,136,229,0.07)' }}>
-            <div style={{ fontSize: 10, color: '#aaa', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 4 }}>Total Debit</div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: '#C62828' }}>-₹{totalDebit.toLocaleString('en-IN')}</div>
+          <div style={{ background: '#162846', borderRadius: 14, padding: '14px', border: '1.5px solid #233A5E', borderLeft: '4px solid #E57373', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+            <div style={{ fontSize: 10, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 4 }}>Total Debit</div>
+            <div style={{ fontSize: 16, fontWeight: 900, color: '#E57373' }}>-₹{totalDebit.toLocaleString('en-IN')}</div>
           </div>
         </div>
       )}
 
       {/* Filter */}
-      <div style={{ display: 'flex', gap: 8, padding: '10px 12px' }}>
+      <div style={{ display: 'flex', gap: 10, padding: '16px 12px' }}>
         {[['all','All'], ['credit','Credit ⬆️'], ['debit','Debit ⬇️']].map(([val, label]) => (
-          <button key={val} onClick={() => setFilter(val)} style={{ flex: 1, padding: '9px 0', borderRadius: 10, border: 'none', cursor: 'pointer', fontWeight: 700, fontSize: 12, background: filter === val ? 'linear-gradient(135deg,#1565C0,#1E88E5)' : '#fff', color: filter === val ? '#fff' : '#90CAF9', border: filter === val ? 'none' : '1.5px solid #E3EAFF', transition: 'all 0.15s' }}>{label}</button>
+          <button key={val} onClick={() => setFilter(val)} style={{ flex: 1, padding: '10px 0', borderRadius: 12, cursor: 'pointer', fontWeight: 800, fontSize: 12, textTransform: 'uppercase', background: filter === val ? 'linear-gradient(135deg,#1565C0,#1E88E5)' : '#162846', color: filter === val ? '#fff' : '#94A3B8', border: filter === val ? 'none' : '1.5px solid #233A5E', transition: 'all 0.2s', boxShadow: filter === val ? '0 4px 12px rgba(21,101,192,0.3)' : 'none' }}>{label}</button>
         ))}
       </div>
 
-      {loading && <div style={{ textAlign: 'center', padding: 60, color: '#90CAF9' }}>⏳ Loading...</div>}
-      {!loading && error && <div style={{ textAlign: 'center', padding: 40, color: '#C62828' }}>{error}</div>}
-      {!loading && !error && filtered.length === 0 && <div style={{ textAlign: 'center', padding: 60, color: '#aaa' }}>📭 No transactions found</div>}
+      {loading && <div style={{ textAlign: 'center', padding: 60, color: '#64748B' }}>⏳ Loading...</div>}
+      {!loading && error && <div style={{ textAlign: 'center', padding: 40, color: '#E57373' }}>{error}</div>}
+      {!loading && !error && filtered.length === 0 && <div style={{ textAlign: 'center', padding: 60, color: '#64748B' }}>📭 No transactions found</div>}
 
       <div style={{ padding: '0 12px' }}>
         {filtered.map((tx, i) => {
@@ -176,22 +176,22 @@ export function TxnsPage({ apiCall, navigate }) {
           const amount = Math.abs(Number(tx.amount ?? tx.amt ?? 0));
           const balAfter = tx.balance_after ?? tx.closing_balance ?? null;
           return (
-            <div key={tx.id || i} style={{ background: '#fff', borderRadius: 12, padding: '12px 14px', marginBottom: 8, display: 'flex', alignItems: 'center', gap: 12, border: '1.5px solid #E3EAFF', borderLeft: `3px solid ${credit ? '#2E7D32' : '#C62828'}`, boxShadow: '0 1px 6px rgba(30,136,229,0.06)' }}>
-              <div style={{ width: 40, height: 40, borderRadius: 10, background: credit ? '#E8F5E9' : '#FFEBEE', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>{credit ? '⬆️' : '⬇️'}</div>
+            <div key={tx.id || i} style={{ background: '#162846', borderRadius: 14, padding: '14px', marginBottom: 10, display: 'flex', alignItems: 'center', gap: 12, border: '1.5px solid #233A5E', borderLeft: `4px solid ${credit ? '#81C784' : '#E57373'}`, boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+              <div style={{ width: 42, height: 42, borderRadius: 12, background: credit ? 'rgba(46,125,50,0.2)' : 'rgba(198,40,40,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>{credit ? '⬆️' : '⬇️'}</div>
               <div style={{ flex: 1, minWidth: 0 }}>
-                <div style={{ fontWeight: 700, color: '#1A237E', fontSize: 13, marginBottom: 2 }}>{typeLabel(tx.type)}</div>
-                <div style={{ fontSize: 11, color: '#888', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{tx.description || tx.note || '—'}</div>
-                <div style={{ fontSize: 10, color: '#bbb', marginTop: 2 }}>{tx.created_at ? new Date(tx.created_at).toLocaleString('en-IN') : '—'}</div>
+                <div style={{ fontWeight: 800, color: '#fff', fontSize: 14, marginBottom: 3 }}>{typeLabel(tx.type)}</div>
+                <div style={{ fontSize: 11, color: '#94A3B8', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{tx.description || tx.note || '—'}</div>
+                <div style={{ fontSize: 10, color: '#64748B', marginTop: 3 }}>{tx.created_at ? new Date(tx.created_at).toLocaleString('en-IN') : '—'}</div>
               </div>
               <div style={{ textAlign: 'right', flexShrink: 0 }}>
-                <div style={{ fontWeight: 800, fontSize: 15, color: credit ? '#2E7D32' : '#C62828' }}>{credit ? '+' : '-'}₹{amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
-                {balAfter !== null && <div style={{ fontSize: 10, color: '#aaa', marginTop: 2 }}>Bal: ₹{Number(balAfter).toLocaleString('en-IN')}</div>}
+                <div style={{ fontWeight: 900, fontSize: 15, color: credit ? '#81C784' : '#E57373' }}>{credit ? '+' : '-'}₹{amount.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
+                {balAfter !== null && <div style={{ fontSize: 10, color: '#94A3B8', marginTop: 3 }}>Bal: ₹{Number(balAfter).toLocaleString('en-IN')}</div>}
               </div>
             </div>
           );
         })}
       </div>
-      {!loading && filtered.length > 0 && <div style={{ textAlign: 'center', padding: '8px 0 16px', fontSize: 11, color: '#bbb' }}>{filtered.length} transactions</div>}
+      {!loading && filtered.length > 0 && <div style={{ textAlign: 'center', padding: '12px 0 24px', fontSize: 11, color: '#64748B' }}>{filtered.length} transactions</div>}
     </div>
   );
 }
@@ -215,14 +215,14 @@ export function WalletPage({ wallet, onAdd, onWith, user, navigate, apiCall }) {
       <SubHeader title="💰 My Wallet" />
 
       {/* Balance Hero */}
-      <div style={{ background: 'linear-gradient(135deg,#1565C0,#1E88E5)', padding: '24px 20px', textAlign: 'center', borderBottom: '3px solid #0D47A1' }}>
-        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 6 }}>Total Balance</div>
-        <div style={{ fontSize: 38, fontWeight: 900, color: '#fff', marginBottom: 16, textShadow: '0 2px 10px rgba(0,0,0,0.2)' }}>₹{wallet.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
-        <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
-          <button onClick={onAdd} style={{ flex: 1, maxWidth: 140, background: '#fff', color: '#1565C0', border: 'none', borderRadius: 30, padding: '12px 0', fontWeight: 800, fontSize: 14, cursor: 'pointer', boxShadow: '0 4px 12px rgba(0,0,0,0.15)' }}>💰 Add Money</button>
-          <button onClick={onWith} style={{ flex: 1, maxWidth: 140, background: 'rgba(255,255,255,0.2)', color: '#fff', border: '2px solid rgba(255,255,255,0.5)', borderRadius: 30, padding: '12px 0', fontWeight: 800, fontSize: 14, cursor: 'pointer' }}>💸 Withdraw</button>
+      <div style={{ background: 'linear-gradient(135deg,#0D47A1,#1976D2)', padding: '28px 20px', textAlign: 'center', borderBottomLeftRadius: 24, borderBottomRightRadius: 24, boxShadow: '0 10px 30px rgba(0,0,0,0.3)', marginBottom: 16 }}>
+        <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.7)', letterSpacing: 3, textTransform: 'uppercase', marginBottom: 8, fontWeight: 700 }}>Total Balance</div>
+        <div style={{ fontSize: 42, fontWeight: 900, color: '#fff', marginBottom: 20, textShadow: '0 4px 15px rgba(0,0,0,0.4)' }}>₹{wallet.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</div>
+        <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
+          <button onClick={onAdd} style={{ flex: 1, maxWidth: 150, background: '#fff', color: '#1565C0', border: 'none', borderRadius: 30, padding: '14px 0', fontWeight: 900, fontSize: 14, cursor: 'pointer', boxShadow: '0 8px 20px rgba(0,0,0,0.25)', textTransform: 'uppercase' }}>💰 Add Money</button>
+          <button onClick={onWith} style={{ flex: 1, maxWidth: 150, background: 'rgba(255,255,255,0.1)', color: '#fff', border: '2px solid rgba(255,255,255,0.3)', borderRadius: 30, padding: '14px 0', fontWeight: 900, fontSize: 14, cursor: 'pointer', textTransform: 'uppercase' }}>💸 Withdraw</button>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'space-around', borderTop: '1px solid rgba(255,255,255,0.2)', marginTop: 16, paddingTop: 12 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-around', borderTop: '1px solid rgba(255,255,255,0.15)', marginTop: 24, paddingTop: 16 }}>
           {[
             { label: 'Total Added', val: '₹' + Number(user?.total_deposited || 0).toLocaleString('en-IN') },
             { label: 'Total Won',   val: '₹' + Number(user?.total_won || 0).toLocaleString('en-IN') },
@@ -230,48 +230,48 @@ export function WalletPage({ wallet, onAdd, onWith, user, navigate, apiCall }) {
           ].map((s, i, arr) => (
             <React.Fragment key={i}>
               <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.7)', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 3 }}>{s.label}</div>
-                <div style={{ fontSize: 14, fontWeight: 800, color: '#fff' }}>{s.val}</div>
+                <div style={{ fontSize: 10, color: 'rgba(255,255,255,0.6)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 4, fontWeight: 700 }}>{s.label}</div>
+                <div style={{ fontSize: 15, fontWeight: 900, color: '#fff' }}>{s.val}</div>
               </div>
-              {i < arr.length-1 && <div style={{ width: 1, background: 'rgba(255,255,255,0.2)' }} />}
+              {i < arr.length-1 && <div style={{ width: 1, background: 'rgba(255,255,255,0.15)' }} />}
             </React.Fragment>
           ))}
         </div>
       </div>
 
       {/* Menu */}
-      <div style={{ background: '#fff', margin: '12px', borderRadius: 14, border: '1.5px solid #E3EAFF', overflow: 'hidden', boxShadow: '0 2px 10px rgba(30,136,229,0.08)' }}>
+      <div style={{ background: '#162846', margin: '0 12px 16px', borderRadius: 16, border: '1.5px solid #233A5E', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.3)' }}>
         {[
           { ic: '💰', l: 'Add Fund',            sub: 'UPI, Net Banking, Cards',    fn: onAdd },
           { ic: '💸', l: 'Withdraw Fund',        sub: 'Bank Transfer, UPI',         fn: onWith },
           { ic: '📋', l: 'Transaction History',  sub: 'All credits & debits',       fn: () => navigate && navigate('txns') },
           { ic: '🎁', l: 'Refer & Earn',         sub: 'Earn ₹100 per referral',     fn: undefined },
         ].map((item, i) => (
-          <div key={i} onClick={item.fn} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 16px', borderBottom: i < 3 ? '1px solid #F0F4FF' : 'none', cursor: item.fn ? 'pointer' : 'default', transition: 'background 0.15s' }}
-            onMouseEnter={e => { if (item.fn) e.currentTarget.style.background = '#F0F4FF'; }}
+          <div key={i} onClick={item.fn} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '16px', borderBottom: i < 3 ? '1px solid #233A5E' : 'none', cursor: item.fn ? 'pointer' : 'default', transition: 'background 0.2s' }}
+            onMouseEnter={e => { if (item.fn) e.currentTarget.style.background = '#1E3A68'; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}>
-            <div style={{ width: 38, height: 38, background: '#E3F2FD', border: '1.5px solid #BBDEFB', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>{item.ic}</div>
+            <div style={{ width: 42, height: 42, background: '#1E3A68', border: '1.5px solid #233A5E', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, flexShrink: 0 }}>{item.ic}</div>
             <div style={{ flex: 1 }}>
-              <div style={{ fontWeight: 700, color: '#1A237E', fontSize: 15 }}>{item.l}</div>
-              <div style={{ fontSize: 11, color: '#aaa', marginTop: 1 }}>{item.sub}</div>
+              <div style={{ fontWeight: 800, color: '#fff', fontSize: 15 }}>{item.l}</div>
+              <div style={{ fontSize: 11, color: '#94A3B8', marginTop: 3 }}>{item.sub}</div>
             </div>
-            <div style={{ color: '#90CAF9', fontSize: 20 }}>›</div>
+            <div style={{ color: '#90CAF9', fontSize: 24 }}>›</div>
           </div>
         ))}
       </div>
 
       {/* Stats */}
-      <div style={{ padding: '0 12px', fontSize: 12, fontWeight: 800, color: '#1565C0', textTransform: 'uppercase', letterSpacing: 1, marginBottom: 10 }}>📈 Your Stats</div>
+      <div style={{ padding: '8px 12px', fontSize: 12, fontWeight: 800, color: '#90CAF9', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 4 }}>📈 Your Stats</div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, padding: '0 12px' }}>
         {[
-          { val: '₹' + Number(stats.highest_win).toLocaleString('en-IN'), label: 'HIGHEST WIN',  color: '#2E7D32' },
-          { val: String(stats.total_bids),                                 label: 'TOTAL BIDS',   color: '#1565C0' },
-          { val: String(stats.games_won),                                  label: 'GAMES WON',    color: '#2E7D32' },
-          { val: '₹' + Number(stats.avg_bid).toLocaleString('en-IN'),      label: 'AVG BID',      color: '#1565C0' },
+          { val: '₹' + Number(stats.highest_win).toLocaleString('en-IN'), label: 'HIGHEST WIN',  color: '#81C784' },
+          { val: String(stats.total_bids),                                 label: 'TOTAL BIDS',   color: '#90CAF9' },
+          { val: String(stats.games_won),                                  label: 'GAMES WON',    color: '#81C784' },
+          { val: '₹' + Number(stats.avg_bid).toLocaleString('en-IN'),      label: 'AVG BID',      color: '#90CAF9' },
         ].map((s, i) => (
-          <div key={i} style={{ background: '#fff', borderRadius: 12, padding: '14px', border: '1.5px solid #E3EAFF', borderTop: `3px solid ${s.color}`, boxShadow: '0 1px 6px rgba(30,136,229,0.07)', textAlign: 'center' }}>
-            <div style={{ fontSize: 20, fontWeight: 900, color: s.color, lineHeight: 1 }}>{s.val}</div>
-            <div style={{ fontSize: 10, color: '#aaa', textTransform: 'uppercase', letterSpacing: 1, marginTop: 4 }}>{s.label}</div>
+          <div key={i} style={{ background: '#162846', borderRadius: 14, padding: '16px', border: '1.5px solid #233A5E', borderTop: `3px solid ${s.color}`, boxShadow: '0 4px 15px rgba(0,0,0,0.2)', textAlign: 'center' }}>
+            <div style={{ fontSize: 22, fontWeight: 900, color: s.color, lineHeight: 1 }}>{s.val}</div>
+            <div style={{ fontSize: 10, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: 1.5, marginTop: 8 }}>{s.label}</div>
           </div>
         ))}
       </div>
@@ -285,7 +285,7 @@ export function HowToPlayPage({ onBack }) {
     <div style={B.page}>
       <SubHeader title="📖 How to Play" onBack={onBack} />
       <div style={{ padding: '0 12px 20px' }}>
-        <div style={{ fontSize: 13, color: '#666', padding: '12px 0 8px', lineHeight: 1.7 }}>Matka ek number guessing game hai. Open aur close numbers pe bet lagao aur jeeto!</div>
+        <div style={{ fontSize: 14, color: '#cbd5e1', padding: '16px 4px', lineHeight: 1.6, fontWeight: 500 }}>Matka ek number guessing game hai. Open aur close numbers pe bet lagao aur jeeto!</div>
         {[
           { n:'1', t:'Wallet Mein Paisa Daalo',   d:'UPI se deposit karo, admin 15–30 min mein approve karega.' },
           { n:'2', t:'Game Chunno',                d:'Home screen se koi bhi open game chunno — Kalyan, Milan Day, etc.' },
@@ -294,25 +294,25 @@ export function HowToPlayPage({ onBack }) {
           { n:'5', t:'Bid Place Karo',             d:'Place Bid dabao. Amount wallet se turant cut ho jaayega.' },
           { n:'6', t:'Result Ka Intezaar Karo',    d:'Result aane ke baad winning amount winning wallet mein credit hogi.' },
         ].map((s, i) => (
-          <div key={i} style={{ background: '#fff', borderRadius: 12, padding: '14px', marginBottom: 8, border: '1.5px solid #E3EAFF', display: 'flex', gap: 12, boxShadow: '0 1px 6px rgba(30,136,229,0.06)' }}>
-            <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg,#1565C0,#1E88E5)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 15, flexShrink: 0 }}>{s.n}</div>
+          <div key={i} style={{ background: '#162846', borderRadius: 14, padding: '16px', marginBottom: 10, border: '1.5px solid #233A5E', display: 'flex', gap: 14, boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+            <div style={{ width: 36, height: 36, background: 'linear-gradient(135deg,#1565C0,#1976D2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 16, flexShrink: 0, boxShadow: '0 4px 10px rgba(21,101,192,0.4)' }}>{s.n}</div>
             <div>
-              <div style={{ fontWeight: 800, color: '#1A237E', fontSize: 14, marginBottom: 3 }}>{s.t}</div>
-              <div style={{ fontSize: 12, color: '#666', lineHeight: 1.6 }}>{s.d}</div>
+              <div style={{ fontWeight: 800, color: '#fff', fontSize: 15, marginBottom: 4 }}>{s.t}</div>
+              <div style={{ fontSize: 13, color: '#94A3B8', lineHeight: 1.6 }}>{s.d}</div>
             </div>
           </div>
         ))}
 
-        <div style={{ fontSize: 12, fontWeight: 800, color: '#1565C0', textTransform: 'uppercase', letterSpacing: 1, margin: '16px 0 10px' }}>🎮 Multipliers</div>
+        <div style={{ fontSize: 12, fontWeight: 800, color: '#90CAF9', textTransform: 'uppercase', letterSpacing: 1.5, margin: '20px 4px 12px' }}>🎮 Multipliers</div>
         {[
           { type:'Single Digit', mult:'9x' }, { type:'Jodi', mult:'90x' },
           { type:'Single Pana', mult:'150x' }, { type:'Double Pana', mult:'300x' },
           { type:'Triple Pana', mult:'600x' }, { type:'Half Sangam', mult:'1500x' },
           { type:'Full Sangam', mult:'10000x' },
         ].map((g, i) => (
-          <div key={i} style={{ background: '#fff', borderRadius: 10, padding: '11px 14px', marginBottom: 7, border: '1.5px solid #E3EAFF', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ fontWeight: 700, color: '#1A237E', fontSize: 14 }}>{g.type}</div>
-            <div style={{ fontWeight: 900, fontSize: 16, color: '#2E7D32' }}>{g.mult}</div>
+          <div key={i} style={{ background: '#162846', borderRadius: 12, padding: '14px 16px', marginBottom: 8, border: '1.5px solid #233A5E', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ fontWeight: 700, color: '#fff', fontSize: 15 }}>{g.type}</div>
+            <div style={{ fontWeight: 900, fontSize: 18, color: '#81C784', textShadow: '0 2px 5px rgba(0,0,0,0.3)' }}>{g.mult}</div>
           </div>
         ))}
       </div>
@@ -337,14 +337,14 @@ export function FAQPage({ onBack }) {
   return (
     <div style={B.page}>
       <SubHeader title="❓ FAQ" onBack={onBack} />
-      <div style={{ padding: '12px' }}>
+      <div style={{ padding: '16px 12px' }}>
         {faqs.map((f, i) => (
-          <div key={i} style={{ background: '#fff', borderRadius: 12, padding: '14px', marginBottom: 8, border: '1.5px solid #E3EAFF', cursor: 'pointer', boxShadow: '0 1px 6px rgba(30,136,229,0.06)', borderLeft: open === i ? '3px solid #1E88E5' : '1.5px solid #E3EAFF' }} onClick={() => setOpen(open===i?null:i)}>
+          <div key={i} style={{ background: '#162846', borderRadius: 14, padding: '16px', marginBottom: 10, border: '1.5px solid #233A5E', cursor: 'pointer', boxShadow: '0 4px 15px rgba(0,0,0,0.2)', borderLeft: open === i ? '4px solid #90CAF9' : '1.5px solid #233A5E', transition: 'all 0.2s' }} onClick={() => setOpen(open===i?null:i)}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div style={{ fontWeight: 700, color: '#1A237E', flex: 1, paddingRight: 8, fontSize: 14 }}>{f.q}</div>
-              <div style={{ color: '#1E88E5', fontSize: 22, fontWeight: 700, width: 24, textAlign: 'center' }}>{open===i?'−':'+'}</div>
+              <div style={{ fontWeight: 800, color: '#fff', flex: 1, paddingRight: 10, fontSize: 14, lineHeight: 1.4 }}>{f.q}</div>
+              <div style={{ color: '#90CAF9', fontSize: 24, fontWeight: 700, width: 24, textAlign: 'center' }}>{open===i?'−':'+'}</div>
             </div>
-            {open===i && <div style={{ fontSize: 13, color: '#555', marginTop: 10, paddingTop: 10, borderTop: '1px solid #F0F4FF', lineHeight: 1.7 }}>{f.a}</div>}
+            {open===i && <div style={{ fontSize: 13, color: '#cbd5e1', marginTop: 12, paddingTop: 12, borderTop: '1px solid #233A5E', lineHeight: 1.6 }}>{f.a}</div>}
           </div>
         ))}
       </div>
@@ -367,14 +367,14 @@ export function TermsPage({ onBack }) {
   return (
     <div style={B.page}>
       <SubHeader title="📜 Terms & Conditions" onBack={onBack} />
-      <div style={{ padding: 12 }}>
+      <div style={{ padding: '16px 12px' }}>
         {items.map((s,i) => (
-          <div key={i} style={{ background: '#fff', borderRadius: 12, padding: '13px 14px', marginBottom: 8, border: '1.5px solid #E3EAFF', boxShadow: '0 1px 5px rgba(30,136,229,0.06)' }}>
-            <div style={{ fontWeight: 800, color: '#1565C0', fontSize: 13, marginBottom: 4 }}>{s.t}</div>
-            <div style={{ fontSize: 12, color: '#555', lineHeight: 1.7 }}>{s.d}</div>
+          <div key={i} style={{ background: '#162846', borderRadius: 14, padding: '16px', marginBottom: 10, border: '1.5px solid #233A5E', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+            <div style={{ fontWeight: 800, color: '#90CAF9', fontSize: 14, marginBottom: 6 }}>{s.t}</div>
+            <div style={{ fontSize: 13, color: '#cbd5e1', lineHeight: 1.6 }}>{s.d}</div>
           </div>
         ))}
-        <p style={{ textAlign: 'center', fontSize: 11, color: '#aaa', marginTop: 12 }}>MatkaKing use karne se aap in terms se agree karte hain.</p>
+        <p style={{ textAlign: 'center', fontSize: 12, color: '#64748B', marginTop: 16, fontWeight: 600 }}>MatkaKing use karne se aap in terms se agree karte hain.</p>
       </div>
     </div>
   );
@@ -392,11 +392,11 @@ export function PrivacyPage({ onBack }) {
   return (
     <div style={B.page}>
       <SubHeader title="🔒 Privacy Policy" onBack={onBack} />
-      <div style={{ padding: 12 }}>
+      <div style={{ padding: '16px 12px' }}>
         {items.map((s,i) => (
-          <div key={i} style={{ background: '#fff', borderRadius: 12, padding: '13px 14px', marginBottom: 8, border: '1.5px solid #E3EAFF', boxShadow: '0 1px 5px rgba(30,136,229,0.06)' }}>
-            <div style={{ fontWeight: 800, color: '#1565C0', fontSize: 13, marginBottom: 4 }}>{s.t}</div>
-            <div style={{ fontSize: 12, color: '#555', lineHeight: 1.7 }}>{s.d}</div>
+          <div key={i} style={{ background: '#162846', borderRadius: 14, padding: '16px', marginBottom: 10, border: '1.5px solid #233A5E', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
+            <div style={{ fontWeight: 800, color: '#90CAF9', fontSize: 14, marginBottom: 6 }}>{s.t}</div>
+            <div style={{ fontSize: 13, color: '#cbd5e1', lineHeight: 1.6 }}>{s.d}</div>
           </div>
         ))}
       </div>
@@ -443,25 +443,25 @@ export function SupportPage({ apiCall, user }) {
       <SubHeader title="👤 My Profile" />
 
       {/* Profile Card */}
-      <div style={{ background: 'linear-gradient(135deg,#1565C0,#1E88E5)', margin: 12, borderRadius: 16, padding: '20px', textAlign: 'center' }}>
-        <div style={{ width: 72, height: 72, background: 'rgba(255,255,255,0.2)', border: '3px solid rgba(255,255,255,0.5)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 10px', fontSize: 32 }}>
+      <div style={{ background: 'linear-gradient(135deg,#0D47A1,#1976D2)', margin: '16px 12px', borderRadius: 20, padding: '24px 20px', textAlign: 'center', boxShadow: '0 8px 25px rgba(0,0,0,0.3)' }}>
+        <div style={{ width: 80, height: 80, background: 'rgba(255,255,255,0.1)', border: '3px solid rgba(255,255,255,0.4)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px', fontSize: 36, color: '#fff', boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}>
           {(user?.name || 'U').charAt(0).toUpperCase()}
         </div>
-        <div style={{ color: '#fff', fontWeight: 800, fontSize: 16 }}>{user?.name || 'User'}</div>
-        <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: 12, marginTop: 2 }}>📱 {user?.mobile || '—'}</div>
-        <div style={{ display: 'inline-block', marginTop: 8, background: 'rgba(255,255,255,0.2)', borderRadius: 20, padding: '3px 12px', fontSize: 11, color: '#fff', fontWeight: 700 }}>✅ Verified</div>
+        <div style={{ color: '#fff', fontWeight: 900, fontSize: 18, letterSpacing: 0.5 }}>{user?.name || 'User'}</div>
+        <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, marginTop: 4, fontWeight: 600 }}>📱 {user?.mobile || '—'}</div>
+        <div style={{ display: 'inline-block', marginTop: 12, background: 'rgba(255,255,255,0.2)', borderRadius: 20, padding: '4px 14px', fontSize: 11, color: '#fff', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1 }}>✅ Verified</div>
       </div>
 
       {/* Form */}
-      <div style={{ background: '#fff', margin: '0 12px 12px', borderRadius: 14, padding: '16px', border: '1.5px solid #E3EAFF', boxShadow: '0 2px 10px rgba(30,136,229,0.08)' }}>
-        {successMsg && <div style={{ background: '#E8F5E9', border: '1px solid #A5D6A7', borderRadius: 8, padding: '9px 12px', marginBottom: 12, color: '#2E7D32', fontSize: 13, fontWeight: 600 }}>{successMsg}</div>}
-        {errorMsg   && <div style={{ background: '#FFEBEE', border: '1px solid #FFCDD2', borderRadius: 8, padding: '9px 12px', marginBottom: 12, color: '#C62828', fontSize: 13, fontWeight: 600 }}>{errorMsg}</div>}
+      <div style={B.card}>
+        {successMsg && <div style={{ background: 'rgba(46,125,50,0.15)', border: '1px solid rgba(46,125,50,0.4)', borderRadius: 10, padding: '12px', marginBottom: 16, color: '#81C784', fontSize: 13, fontWeight: 700 }}>{successMsg}</div>}
+        {errorMsg   && <div style={{ background: 'rgba(198,40,40,0.15)', border: '1px solid rgba(198,40,40,0.4)', borderRadius: 10, padding: '12px', marginBottom: 16, color: '#E57373', fontSize: 13, fontWeight: 700 }}>{errorMsg}</div>}
 
         <label style={B.label}>Full Name</label>
         <input style={B.input} value={profileForm.username} onChange={e => setProfileForm(p => ({ ...p, username: e.target.value }))} placeholder="Apna naam likhein" />
 
-        <div style={{ borderTop: '1px solid #F0F4FF', paddingTop: 14, marginTop: 4 }}>
-          <div style={{ fontSize: 11, fontWeight: 800, color: '#1565C0', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 12 }}>🔐 Change Password (Optional)</div>
+        <div style={{ borderTop: '1px solid #233A5E', paddingTop: 20, marginTop: 8 }}>
+          <div style={{ fontSize: 12, fontWeight: 800, color: '#90CAF9', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 16 }}>🔐 Change Password (Optional)</div>
           <label style={B.label}>Current Password</label>
           <input type="password" style={B.input} placeholder="Purana password" value={profileForm.oldPassword} onChange={e => setProfileForm(p => ({ ...p, oldPassword: e.target.value }))} />
           <label style={B.label}>New Password</label>
@@ -470,33 +470,33 @@ export function SupportPage({ apiCall, user }) {
           <input type="password" style={{ ...B.input, marginBottom: 0 }} placeholder="Dobara naya password" value={profileForm.confirmPassword} onChange={e => setProfileForm(p => ({ ...p, confirmPassword: e.target.value }))} />
         </div>
 
-        <button onClick={updateProfile} disabled={loading} style={{ ...B.btn, marginTop: 14, opacity: loading ? 0.6 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}>
+        <button onClick={updateProfile} disabled={loading} style={{ ...B.btn, marginTop: 20, opacity: loading ? 0.6 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}>
           {loading ? '⏳ Updating...' : '💾 UPDATE PROFILE'}
         </button>
       </div>
 
       {/* Support */}
-      <div style={{ margin: '0 12px', background: '#fff', borderRadius: 14, border: '1.5px solid #E3EAFF', overflow: 'hidden', boxShadow: '0 2px 10px rgba(30,136,229,0.08)' }}>
-        <div style={{ padding: '12px 16px', background: '#E3F2FD', borderBottom: '1px solid #BBDEFB', fontSize: 12, fontWeight: 800, color: '#1565C0', textTransform: 'uppercase', letterSpacing: 1 }}>🎧 Help & Support</div>
-        <div onClick={() => window.open(`https://wa.me/91${contacts.phone}`, '_blank')} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 16px', borderBottom: '1px solid #F0F4FF', cursor: 'pointer' }}>
-          <div style={{ width: 40, height: 40, background: '#E8F5E9', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, flexShrink: 0 }}>💬</div>
+      <div style={{ margin: '0 12px', background: '#162846', borderRadius: 16, border: '1.5px solid #233A5E', overflow: 'hidden', boxShadow: '0 8px 25px rgba(0,0,0,0.3)' }}>
+        <div style={{ padding: '14px 16px', background: '#1E3A68', borderBottom: '1px solid #233A5E', fontSize: 12, fontWeight: 800, color: '#90CAF9', textTransform: 'uppercase', letterSpacing: 1.5 }}>🎧 Help & Support</div>
+        <div onClick={() => window.open(`https://wa.me/91${contacts.phone}`, '_blank')} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '16px', borderBottom: '1px solid #233A5E', cursor: 'pointer' }}>
+          <div style={{ width: 44, height: 44, background: 'rgba(46,125,50,0.2)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, flexShrink: 0 }}>💬</div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontWeight: 700, color: '#1A237E', fontSize: 14 }}>WhatsApp Support</div>
-            <div style={{ fontSize: 11, color: '#aaa', marginTop: 1 }}>+91 {contacts.phone}</div>
+            <div style={{ fontWeight: 800, color: '#fff', fontSize: 15 }}>WhatsApp Support</div>
+            <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 3 }}>+91 {contacts.phone}</div>
           </div>
-          <div style={{ color: '#90CAF9', fontSize: 20 }}>›</div>
+          <div style={{ color: '#90CAF9', fontSize: 24 }}>›</div>
         </div>
-        <div onClick={() => window.open(`https://t.me/${contacts.telegram}`, '_blank')} style={{ display: 'flex', alignItems: 'center', gap: 14, padding: '14px 16px', cursor: 'pointer' }}>
-          <div style={{ width: 40, height: 40, background: '#E3F2FD', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, flexShrink: 0 }}>✈️</div>
+        <div onClick={() => window.open(`https://t.me/${contacts.telegram}`, '_blank')} style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '16px', cursor: 'pointer' }}>
+          <div style={{ width: 44, height: 44, background: '#1E3A68', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22, flexShrink: 0 }}>✈️</div>
           <div style={{ flex: 1 }}>
-            <div style={{ fontWeight: 700, color: '#1A237E', fontSize: 14 }}>Telegram Support</div>
-            <div style={{ fontSize: 11, color: '#aaa', marginTop: 1 }}>Quick reply in 5 mins</div>
+            <div style={{ fontWeight: 800, color: '#fff', fontSize: 15 }}>Telegram Support</div>
+            <div style={{ fontSize: 12, color: '#94A3B8', marginTop: 3 }}>Quick reply in 5 mins</div>
           </div>
-          <div style={{ color: '#90CAF9', fontSize: 20 }}>›</div>
+          <div style={{ color: '#90CAF9', fontSize: 24 }}>›</div>
         </div>
       </div>
 
-      <div style={{ textAlign: 'center', padding: '20px 0 10px', fontSize: 11, color: '#bbb' }}>MatkaKing · Version 5.0.0 · 18+ Only</div>
+      <div style={{ textAlign: 'center', padding: '24px 0 16px', fontSize: 11, color: '#64748B', fontWeight: 600 }}>MatkaKing · Version 5.0.0 · 18+ Only</div>
     </div>
   );
 }
