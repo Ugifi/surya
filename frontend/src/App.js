@@ -82,7 +82,7 @@
     return (
       <div style={{
         minHeight: '100vh',
-        background: 'linear-gradient(135deg, #0d1b5e 0%, #1a2f8f 60%, #1565C0 100%)',
+        background: 'linear-gradient(135deg, #bf360c 0%, #e65c00 60%, #FFA500 100%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -94,7 +94,7 @@
       }}>
         {/* Background circles */}
         <div style={{ position:'absolute', top:'-5%', left:'-10%', width:300, height:300, borderRadius:'50%', background:'rgba(255,255,255,0.05)', filter:'blur(60px)' }}/>
-        <div style={{ position:'absolute', bottom:'-10%', right:'-10%', width:350, height:350, borderRadius:'50%', background:'rgba(255,215,0,0.08)', filter:'blur(70px)' }}/>
+        <div style={{ position:'absolute', bottom:'-10%', right:'-10%', width:350, height:350, borderRadius:'50%', background:'rgba(255,255,255,0.10)', filter:'blur(70px)' }}/>
 
         {/* Logo */}
         <div style={{ width:100, height:100, borderRadius:'50%', background:'rgba(255,255,255,0.15)', border:'2px solid rgba(255,215,0,0.4)', display:'flex', alignItems:'center', justifyContent:'center', marginBottom:16, boxShadow:'0 8px 32px rgba(0,0,0,0.25)', overflow:'hidden' }}>
@@ -187,10 +187,10 @@
         <div style={{ position:'fixed', top:0, left:0, width:280, height:'100%', background:'#fff', zIndex:501, overflowY:'auto', animation:'slideDrawerIn 0.25s ease', boxShadow:'4px 0 24px rgba(21,101,192,0.18)', paddingBottom:40 }}>
           <style>{`
             @keyframes slideDrawerIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
-            .drawer-menu-item:hover { background: #EEF4FF !important; transform: translateX(4px); }
+            .drawer-menu-item:hover { background: #FFF3E0 !important; transform: translateX(4px); }
           `}</style>
 
-          <div style={{ background:'linear-gradient(135deg, #1565C0, #1976D2)', padding:'20px 16px 16px', display:'flex', justifyContent:'space-between', alignItems:'flex-start' }}>
+          <div style={{ background:'linear-gradient(135deg, #e65c00, #FFA500)', padding:'20px 16px 16px', display:'flex', justifyContent:'space-between', alignItems:'flex-start' }}>
             <div style={{ display:'flex', gap:12, alignItems:'center' }}>
               <div style={{ width:50, height:50, borderRadius:'50%', background:'rgba(255,255,255,0.2)', border:'2px solid rgba(255,255,255,0.5)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, flexShrink:0 }}>
                 {(user?.name || 'U').charAt(0).toUpperCase()}
@@ -212,23 +212,23 @@
                 style={{ display:'flex', flexDirection:'column', alignItems:'center', gap:5, cursor:'pointer', padding:'8px 4px', borderRadius:10, transition:'background 0.15s' }}
                 onMouseEnter={e => e.currentTarget.style.background = '#EEF4FF'}
                 onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
-                <div style={{ width:40, height:40, background:'#EEF4FF', border:'1.5px solid #BBDEFB', borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18 }}>{btn.ic}</div>
-                <div style={{ fontSize:11, color:'#1565C0', fontWeight:700, textAlign:'center' }}>{btn.label}</div>
+                <div style={{ width:40, height:40, background:'#FFF3E0', border:'1.5px solid #FFCC80', borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', fontSize:18 }}>{btn.ic}</div>
+                <div style={{ fontSize:11, color:'#FF8C00', fontWeight:700, textAlign:'center' }}>{btn.label}</div>
               </div>
             ))}
           </div>
 
           {menuItems.map((item, i) => {
             if (item.section) return (
-              <div key={i} style={{ fontSize:10, color:'#90CAF9', letterSpacing:2, textTransform:'uppercase', padding:'14px 16px 4px', fontWeight:700 }}>{item.section}</div>
+              <div key={i} style={{ fontSize:10, color:'#FFCC80', letterSpacing:2, textTransform:'uppercase', padding:'14px 16px 4px', fontWeight:700 }}>{item.section}</div>
             );
             return (
               <div key={i} className="drawer-menu-item"
                 onClick={() => { if (item.action) item.action(); else onNav(item.id); onClose(); }}
                 style={{ display:'flex', alignItems:'center', gap:14, padding:'13px 16px', cursor:'pointer', borderBottom:'1px solid #F0F4FF', transition:'all 0.15s' }}>
-                <div style={{ width:36, height:36, background:'#EEF4FF', border:'1px solid #BBDEFB', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:16, flexShrink:0 }}>{item.ic}</div>
-                <div style={{ fontSize:15, fontWeight:600, color:'#0D47A1' }}>{item.label}</div>
-                <div style={{ marginLeft:'auto', color:'#90CAF9', fontSize:18 }}>›</div>
+                <div style={{ width:36, height:36, background:'#FFF3E0', border:'1px solid #FFCC80', borderRadius:'50%', display:'flex', alignItems:'center', justifyContent:'center', fontSize:16, flexShrink:0 }}>{item.ic}</div>
+                <div style={{ fontSize:15, fontWeight:600, color:'#bf360c' }}>{item.label}</div>
+                <div style={{ marginLeft:'auto', color:'#FFCC80', fontSize:18 }}>›</div>
               </div>
             );
           })}
@@ -346,11 +346,11 @@
       <div style={{ background:'#f5f6fa', minHeight:'100vh', paddingBottom:80, fontFamily:"'Nunito','Segoe UI',sans-serif" }}>
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
-          .cg-card { background: #fff; border-radius: 16px; margin: 0 12px 12px; overflow: visible; box-shadow: 0 2px 10px rgba(21,101,192,0.08); transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #BBDEFB; padding: 14px 16px; }
-          .cg-card:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(21,101,192,0.14); }
+          .cg-card { background: #fff; border-radius: 16px; margin: 0 12px 12px; overflow: visible; box-shadow: 0 2px 10px rgba(255,140,0,0.10); transition: transform 0.2s, box-shadow 0.2s; border: 1px solid #FFE0B2; padding: 14px 16px; }
+          .cg-card:hover { transform: translateY(-2px); box-shadow: 0 6px 22px rgba(255,140,0,0.18); }
           .cg-card-top { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:4px; }
           .cg-card-name { font-family:'Nunito',sans-serif; font-size:18px; font-weight:900; color:#111; letter-spacing:0.5px; text-transform:uppercase; line-height:1.2; }
-          .cg-result { font-size:14px; font-weight:700; color:#1565C0; letter-spacing:2px; margin-bottom:6px; }
+          .cg-result { font-size:14px; font-weight:700; color:#FF8C00; letter-spacing:2px; margin-bottom:6px; }
           .cg-status-running { display:inline-flex; align-items:center; gap:5px; font-size:13px; font-weight:700; color:#2E7D32; margin-bottom:8px; }
           .cg-status-closed  { display:inline-flex; align-items:center; gap:5px; font-size:13px; font-weight:700; color:#C62828; margin-bottom:8px; }
           .cg-pulse-dot { width:8px; height:8px; border-radius:50%; background:#2E7D32; animation:cgPulse 1.4s ease-in-out infinite; flex-shrink:0; }
@@ -358,19 +358,19 @@
           .cg-bottom-row { display:flex; align-items:center; justify-content:space-between; margin-top:2px; }
           .cg-time-wrap { display:flex; align-items:center; gap:16px; }
           .cg-time-lbl { font-size:12px; color:#666; font-weight:600; margin-bottom:1px; }
-          .cg-time-val { font-size:14px; font-weight:700; color:#1565C0; }
-          .cg-divider-v { width:1px; height:32px; background:#BBDEFB; flex-shrink:0; }
-          .cg-play-circle { width:48px; height:48px; border-radius:50%; border:none; background:linear-gradient(135deg,#1565C0,#1E88E5); color:#fff; font-size:17px; display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; box-shadow:0 4px 14px rgba(21,101,192,0.40); transition:transform 0.2s, box-shadow 0.2s; margin-top:-28px; }
-          .cg-play-circle:hover { transform:scale(1.1); box-shadow:0 6px 20px rgba(21,101,192,0.50); }
+          .cg-time-val { font-size:14px; font-weight:700; color:#FF8C00; }
+          .cg-divider-v { width:1px; height:32px; background:#FFE0B2; flex-shrink:0; }
+          .cg-play-circle { width:48px; height:48px; border-radius:50%; border:none; background:linear-gradient(135deg,#FF8C00,#FFA500); color:#fff; font-size:17px; display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; box-shadow:0 4px 14px rgba(255,140,0,0.45); transition:transform 0.2s, box-shadow 0.2s; margin-top:-28px; }
+          .cg-play-circle:hover { transform:scale(1.1); box-shadow:0 6px 20px rgba(255,140,0,0.55); }
           .cg-play-circle:active { transform:scale(0.95); }
-          .cg-section-label { padding:4px 12px 8px; font-size:13px; font-weight:800; color:#1565C0; letter-spacing:2px; text-transform:uppercase; display:flex; align-items:center; gap:6px; }
-          .cg-section-label::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(21,101,192,0.3),transparent); }
+          .cg-section-label { padding:4px 12px 8px; font-size:13px; font-weight:800; color:#FF8C00; letter-spacing:2px; text-transform:uppercase; display:flex; align-items:center; gap:6px; }
+          .cg-section-label::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,rgba(255,140,0,0.3),transparent); }
           .cg-loader { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px; gap:14px; }
-          .cg-loader-ring { width:44px; height:44px; border:4px solid #E3F2FD; border-top-color:#1565C0; border-radius:50%; animation:cgSpin 0.8s linear infinite; }
+          .cg-loader-ring { width:44px; height:44px; border:4px solid #FFE0B2; border-top-color:#FF8C00; border-radius:50%; animation:cgSpin 0.8s linear infinite; }
           @keyframes cgSpin { to { transform:rotate(360deg); } }
         `}</style>
 
-        <div style={{ background:'linear-gradient(135deg,#1565C0,#1976D2)', padding:'16px', textAlign:'center', borderBottom:'3px solid #0D47A1', boxShadow:'0 2px 12px rgba(21,101,192,0.3)' }}>
+        <div style={{ background:'linear-gradient(135deg,#e65c00,#FFA500)', padding:'16px', textAlign:'center', borderBottom:'3px solid #cc5200', boxShadow:'0 2px 12px rgba(230,92,0,0.3)' }}>
           <div style={{ fontSize:32, marginBottom:4 }}>
             {category === 'starline' ? '⭐' : category === 'jackpot' ? '🎰' : '🎯'}
           </div>
@@ -401,14 +401,14 @@
                 <div className="cg-card-top">
                   <div className="cg-card-name">{g.name}</div>
                   <svg width="38" height="38" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink:0 }}>
-                    <rect x="4" y="7" width="34" height="31" rx="4" stroke="#1565C0" strokeWidth="2.2" fill="#EEF4FF"/>
-                    <path d="M4 15H38" stroke="#1565C0" strokeWidth="2.2"/>
-                    <path d="M14 4V10M28 4V10" stroke="#1565C0" strokeWidth="2.5" strokeLinecap="round"/>
-                    <rect x="10" y="20" width="5" height="4" rx="1" fill="#1565C0"/>
-                    <rect x="19" y="20" width="5" height="4" rx="1" fill="#1565C0"/>
-                    <rect x="28" y="20" width="4" height="4" rx="1" fill="#1565C0"/>
-                    <rect x="10" y="28" width="5" height="4" rx="1" fill="#1565C0"/>
-                    <rect x="19" y="28" width="5" height="4" rx="1" fill="#1565C0"/>
+                    <rect x="4" y="7" width="34" height="31" rx="4" stroke="#FF8C00" strokeWidth="2.2" fill="#FFF3E0"/>
+                    <path d="M4 15H38" stroke="#FF8C00" strokeWidth="2.2"/>
+                    <path d="M14 4V10M28 4V10" stroke="#FF8C00" strokeWidth="2.5" strokeLinecap="round"/>
+                    <rect x="10" y="20" width="5" height="4" rx="1" fill="#FF8C00"/>
+                    <rect x="19" y="20" width="5" height="4" rx="1" fill="#FF8C00"/>
+                    <rect x="28" y="20" width="4" height="4" rx="1" fill="#FF8C00"/>
+                    <rect x="10" y="28" width="5" height="4" rx="1" fill="#FF8C00"/>
+                    <rect x="19" y="28" width="5" height="4" rx="1" fill="#FF8C00"/>
                   </svg>
                 </div>
 
@@ -635,7 +635,7 @@
 
     if (authLoading) {
       return (
-        <div style={{ height:'100vh', display:'flex', justifyContent:'center', alignItems:'center', background:'#EEF4FF', color:'#1565C0', fontSize:18, fontWeight:700 }}>
+        <div style={{ height:'100vh', display:'flex', justifyContent:'center', alignItems:'center', background:'#FFF3E0', color:'#FF8C00', fontSize:18, fontWeight:700 }}>
           Loading...
         </div>
       );
@@ -650,7 +650,7 @@
     return (
       <>
         <style>{`
-          .topnav { background: linear-gradient(135deg, #1565C0, #1976D2) !important; border-bottom: 3px solid #0D47A1 !important; box-shadow: 0 2px 12px rgba(21,101,192,0.35) !important; }
+          .topnav { background: linear-gradient(135deg, #e65c00, #FFA500) !important; border-bottom: 3px solid #cc5200 !important; box-shadow: 0 2px 12px rgba(230,92,0,0.35) !important; }
           .brand { color: #fff !important; text-shadow: 0 1px 6px rgba(0,0,0,0.15) !important; font-family: 'Baloo 2','Nunito',sans-serif !important; letter-spacing: 2px !important; }
           .back-btn { color: #fff !important; }
           .hamburger span { background: #fff !important; }
@@ -658,15 +658,15 @@
           .tn-wallet span { color: #fff !important; }
           .tn-bell { background: rgba(255,255,255,0.18) !important; border: 1.5px solid rgba(255,255,255,0.35) !important; }
           .bell-dot { background: #FF5722 !important; }
-          .botnav { background: #fff !important; border-top: 2px solid #BBDEFB !important; box-shadow: 0 -4px 16px rgba(21,101,192,0.10) !important; }
+          .botnav { background: #fff !important; border-top: 2px solid #FFE0B2 !important; box-shadow: 0 -4px 16px rgba(255,140,0,0.12) !important; }
           .bn-item svg { color: #90CAF9; }
           .bn-item span:last-child { color: #555 !important; font-size: 10px !important; font-weight: 600 !important; font-family: sans-serif !important; letter-spacing: 0 !important; }
-          .bn-item.active svg { color: #1565C0 !important; }
-          .bn-item.active span:last-child { color: #1565C0 !important; font-weight: 700 !important; }
-          .bn-item:hover { background: #EEF4FF !important; }
-          .bn-item:hover svg { color: #1565C0 !important; }
-          .home-circle { background: linear-gradient(135deg, #1565C0, #1E88E5) !important; box-shadow: 0 4px 16px rgba(21,101,192,0.45) !important; border: 3px solid #fff !important; }
-          .notif-modal-header { background: linear-gradient(135deg, #1565C0, #1976D2) !important; }
+          .bn-item.active svg { color: #FF8C00 !important; }
+          .bn-item.active span:last-child { color: #FF8C00 !important; font-weight: 700 !important; }
+          .bn-item:hover { background: #FFF3E0 !important; }
+          .bn-item:hover svg { color: #FF8C00 !important; }
+          .home-circle { background: linear-gradient(135deg, #FF8C00, #FFA500) !important; box-shadow: 0 4px 16px rgba(255,140,0,0.50) !important; border: 3px solid #fff !important; }
+          .notif-modal-header { background: linear-gradient(135deg, #e65c00, #FFA500) !important; }
         `}</style>
 
         {/* TOP NAV */}
@@ -724,23 +724,23 @@
         {!isSubPage && (
           <div className="botnav">
             <div className={`bn-item${tab==='txns'?' active':''}`} onClick={() => navigate('txns')}>
-              <IconTransaction color={tab==='txns' ? '#1565C0' : '#90CAF9'} />
+              <IconTransaction color={tab==='txns' ? '#FF8C00' : '#FFCC80'} />
               <span>Transaction</span>
             </div>
             <div className={`bn-item${tab==='bids'?' active':''}`} onClick={() => navigate('bids')}>
-              <IconBids color={tab==='bids' ? '#1565C0' : '#90CAF9'} />
+              <IconBids color={tab==='bids' ? '#FF8C00' : '#FFCC80'} />
               <span>My Bids</span>
             </div>
             <div className="bn-center" onClick={() => { setPage('home'); setTab('home'); setSelectedGame(null); setSelectedType(null); }}>
               <div className="home-circle"><IconHome size={26} color="white" /></div>
-              <span style={{ color:tab==='home'?'#1565C0':'#555', fontSize:10, fontWeight:tab==='home'?700:600, marginTop:2 }}>Home</span>
+              <span style={{ color:tab==='home'?'#FF8C00':'#555', fontSize:10, fontWeight:tab==='home'?700:600, marginTop:2 }}>Home</span>
             </div>
             <div className={`bn-item${tab==='wallet'?' active':''}`} onClick={() => navigate('wallet')}>
-              <IconWallet color={tab==='wallet' ? '#1565C0' : '#90CAF9'} />
+              <IconWallet color={tab==='wallet' ? '#FF8C00' : '#FFCC80'} />
               <span>Funds</span>
             </div>
             <div className={`bn-item${tab==='support'?' active':''}`} onClick={() => { setPage('support'); setTab('support'); }}>
-              <IconSupport color={tab==='support' ? '#1565C0' : '#90CAF9'} />
+              <IconSupport color={tab==='support' ? '#FF8C00' : '#FFCC80'} />
               <span>Support</span>
             </div>
           </div>
@@ -772,7 +772,7 @@
                   <div style={{ color:'#aaa', textAlign:'center', padding:'30px 20px', fontSize:14 }}>Abhi koi naya notification nahi hai.</div>
                 ) : (
                   noticesData.map((n, i) => (
-                    <div key={n.id || i} style={{ background:'#EEF4FF', padding:12, borderRadius:8, marginBottom:10, color:'#0D47A1', fontSize:13, borderLeft:'4px solid #1565C0', lineHeight:1.5 }}>
+                    <div key={n.id || i} style={{ background:'#FFF3E0', padding:12, borderRadius:8, marginBottom:10, color:'#bf360c', fontSize:13, borderLeft:'4px solid #FF8C00', lineHeight:1.5 }}>
                       {n.message}
                     </div>
                   ))
