@@ -80,32 +80,32 @@ async function apiCall(path, method = 'GET', body = null, retries = 2) {
 
 // ── BLUE THEME TOKENS ──────────────────────────────────────────
 const C = {
-  navBg: 'linear-gradient(135deg, #0d1b5e 0%, #1a2f8f 60%, #1565C0 100%)',
-  drawerBg: '#0a1550',
-  drawerItem: '#0f1d6b',
-  drawerAct: '#1976D2',
-  primary: '#1565C0',
-  primaryHov: '#1976D2',
-  accent: '#FFD700',
+  navBg: 'linear-gradient(135deg, #b87200 0%, #e8a000 60%, #f5a623 100%)',
+  drawerBg: '#fff8ee',
+  drawerItem: '#fff3e0',
+  drawerAct: '#f5a623',
+  primary: '#e8a000',
+  primaryHov: '#f5a623',
+  accent: '#FF8C00',
   accentSoft: '#FFF8DC',
-  pageBg: '#EEF2FF',
+  pageBg: '#fff8ee',
   card: '#FFFFFF',
-  cardBorder: '#C5CAE9',
-  cardShadow: '0 4px 16px rgba(21,101,192,0.10)',
-  textMain: '#0d1b5e',
-  textSub: '#1565C0',
-  textMuted: '#5C6BC0',
+  cardBorder: '#ffe0a0',
+  cardShadow: '0 4px 16px rgba(232,160,0,0.10)',
+  textMain: '#1a1a1a',
+  textSub: '#b87200',
+  textMuted: '#c8a000',
   success: '#2E7D32',
   successBg: '#E8F5E9',
   danger: '#C62828',
   dangerBg: '#FFEBEE',
   warn: '#E65100',
   warnBg: '#FFF3E0',
-  inputBg: '#F0F4FF',
-  inputBdr: '#90CAF9',
-  inputFocus: '#1565C0',
-  badgePend: '#E3F2FD',
-  badgePendT: '#1565C0',
+  inputBg: '#fff8ee',
+  inputBdr: '#f5d080',
+  inputFocus: '#e8a000',
+  badgePend: '#fff3e0',
+  badgePendT: '#b87200',
 };
 
 const B = {
@@ -133,7 +133,7 @@ const B = {
   },
   btn: {
     width: '100%',
-    background: `linear-gradient(135deg, ${C.primary} 0%, #1976D2 100%)`,
+    background: `linear-gradient(135deg, ${C.primary} 0%, #f5a623 100%)`,
     color: '#fff',
     border: 'none',
     borderRadius: 12,
@@ -143,7 +143,7 @@ const B = {
     cursor: 'pointer',
     textTransform: 'uppercase',
     letterSpacing: 1,
-    boxShadow: '0 4px 14px rgba(21,101,192,0.30)',
+    boxShadow: '0 4px 14px rgba(232,160,0,0.30)',
   },
   label: {
     fontSize: 11,
@@ -522,7 +522,7 @@ export function AdminLogin({ onLogin }) {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: `linear-gradient(160deg, #0d1b5e 0%, #1565C0 60%, #1976D2 100%)`, padding: 24, fontFamily: '"Segoe UI", sans-serif' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', background: `linear-gradient(160deg, #b87200 0%, #e8a000 60%, #f5a623 100%)`, padding: 24, fontFamily: '"Segoe UI", sans-serif' }}>
       <div style={{ position: 'absolute', top: 60, right: 60, width: 180, height: 180, borderRadius: '50%', background: 'rgba(255,255,255,0.04)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: 80, left: 40, width: 120, height: 120, borderRadius: '50%', background: 'rgba(255,215,0,0.08)', pointerEvents: 'none' }} />
 
@@ -531,7 +531,7 @@ export function AdminLogin({ onLogin }) {
           <span style={{ fontSize: 38 }}>👑</span>
         </div>
         <div style={{ fontSize: 26, fontWeight: 900, color: '#fff', letterSpacing: 2 }}>ADMIN PANEL</div>
-        <div style={{ fontSize: 12, color: 'rgba(255,215,0,0.85)', fontWeight: 700, marginTop: 6, letterSpacing: 1 }}>SAKTA MATKA • SECURE LOGIN</div>
+        <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.85)', fontWeight: 700, marginTop: 6, letterSpacing: 1 }}>SAKTA MATKA • SECURE LOGIN</div>
       </div>
 
       <div style={{ background: 'rgba(255,255,255,0.97)', borderRadius: 22, padding: 32, width: '100%', maxWidth: 370, boxShadow: '0 20px 60px rgba(0,0,0,0.3)', border: '1.5px solid rgba(255,255,255,0.5)' }}>
@@ -897,7 +897,7 @@ export default function AdminPanel({ onLogout }) {
       <div style={{ position: 'fixed', top: 0, left: 0, height: '100%', width: 272, background: C.drawerBg, zIndex: 400, overflowY: 'auto', paddingBottom: 40, transform: drawerOpen ? 'translateX(0)' : 'translateX(-100%)', transition: 'transform 0.3s cubic-bezier(0.4,0,0.2,1)', boxShadow: drawerOpen ? '5px 0 40px rgba(0,0,0,0.4)' : 'none' }}>
         <div style={{ background: C.navBg, padding: '24px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div><div style={{ fontSize: 18, fontWeight: 900, color: '#fff', letterSpacing: 1 }}>{settings.site_name || 'SAKTA MATKA'}</div>
-            <div style={{ fontSize: 11, color: C.accent, marginTop: 4, fontWeight: 700, letterSpacing: 1 }}>Admin Control Panel</div>
+            <div style={{ fontSize: 11, color: '#fff3cc', marginTop: 4, fontWeight: 700, letterSpacing: 1 }}>Admin Control Panel</div>
           </div>
           <button onClick={() => setDrawerOpen(false)} style={{ background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: '50%', width: 36, height: 36, cursor: 'pointer', color: '#fff', fontSize: 18, fontWeight: 'bold' }}>✕</button>
         </div>
@@ -908,9 +908,9 @@ export default function AdminPanel({ onLogout }) {
           <div key={s.id} onClick={() => navigateTo(s.id)} style={{
             display: 'flex', alignItems: 'center', gap: 14, padding: '13px 20px', cursor: 'pointer',
             borderBottom: '1px solid rgba(255,255,255,0.05)',
-            background: page === s.id ? 'rgba(21,101,192,0.5)' : 'transparent',
+            background: page === s.id ? 'rgba(232,160,0,0.15)' : 'transparent',
             borderLeft: page === s.id ? `4px solid ${C.accent}` : '4px solid transparent',
-            color: page === s.id ? '#fff' : 'rgba(255,255,255,0.65)',
+            color: page === s.id ? '#b87200' : '#888',
             fontSize: 14, fontWeight: page === s.id ? 800 : 500,
             transition: 'all 0.2s',
           }}>
@@ -927,8 +927,8 @@ export default function AdminPanel({ onLogout }) {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
           <div style={{ fontSize: 20, fontWeight: 900, color: C.textMain }}>{pageTitles[page]}</div>
           {['dashboard', 'bids', 'deposits', 'withdrawals', 'notices'].includes(page) && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#E3F2FD', border: `1.5px solid #90CAF9`, borderRadius: 20, padding: '6px 12px', fontSize: 11, color: C.primary, fontWeight: 800 }}>
-              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#1976D2', display: 'inline-block', animation: 'livePulse 2s infinite' }} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#fff3e0', border: `1.5px solid #f5d080`, borderRadius: 20, padding: '6px 12px', fontSize: 11, color: C.primary, fontWeight: 800 }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#e8a000', display: 'inline-block', animation: 'livePulse 2s infinite' }} />
               LIVE {lastRefresh && <span style={{ color: '#64B5F6', marginLeft: 4 }}>· {lastRefresh.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}</span>}
             </div>
           )}
@@ -936,7 +936,7 @@ export default function AdminPanel({ onLogout }) {
 
         <style>{`
           @keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)} }
-          input:focus,select:focus { border-color: ${C.inputFocus} !important; box-shadow: 0 0 0 3px rgba(21,101,192,0.12) !important; }
+          input:focus,select:focus { border-color: ${C.inputFocus} !important; box-shadow: 0 0 0 3px rgba(232,160,0,0.12) !important; }
         `}</style>
 
         {loading && (
@@ -1125,7 +1125,7 @@ return (
                     style={{
                       padding: '9px 18px', borderRadius: 10, cursor: 'pointer', fontWeight: 800,
                       fontSize: 12, background: bidFilterDate === 'last7'
-                        ? `linear-gradient(135deg,${C.primary},#1976D2)` : C.inputBg,
+                        ? `linear-gradient(135deg,${C.primary},#f5a623)` : C.inputBg,
                       color: bidFilterDate === 'last7' ? '#fff' : C.textMuted,
                       border: bidFilterDate === 'last7' ? 'none' : `1.5px solid ${C.cardBorder}`,
                     }}>
@@ -1146,7 +1146,7 @@ return (
                 <div style={{ display: 'flex', gap: 8 }}>
                   {[['all', 'All'], ['pending', '⏳ Pending'], ['win', '🏆 Won'], ['loss', '💔 Lost']].map(([val, label]) => (
                     <button key={val} onClick={() => setBidFilterStatus(val)}
-                      style={{ flex: 1, padding: '9px 0', borderRadius: 10, cursor: 'pointer', fontWeight: 800, fontSize: 11, background: bidFilterStatus === val ? `linear-gradient(135deg,${C.primary},#1976D2)` : C.inputBg, color: bidFilterStatus === val ? '#fff' : C.textMuted, border: bidFilterStatus === val ? 'none' : `1.5px solid ${C.cardBorder}`, transition: 'all 0.2s' }}>
+                      style={{ flex: 1, padding: '9px 0', borderRadius: 10, cursor: 'pointer', fontWeight: 800, fontSize: 11, background: bidFilterStatus === val ? `linear-gradient(135deg,${C.primary},#f5a623)` : C.inputBg, color: bidFilterStatus === val ? '#fff' : C.textMuted, border: bidFilterStatus === val ? 'none' : `1.5px solid ${C.cardBorder}`, transition: 'all 0.2s' }}>
                       {label}
                     </button>
                   ))}
@@ -1184,7 +1184,7 @@ return (
         {!loading && page === 'results' && (
           <div style={B.card}>
             <div style={B.title}>🏆 Declare Results</div>
-            <div style={{ background: '#E3F2FD', border: `1.5px solid #90CAF9`, borderRadius: 10, padding: 12, color: C.primary, fontSize: 12, marginBottom: 16, fontWeight: 600, lineHeight: 1.6 }}>
+            <div style={{ background: '#fff3e0', border: `1.5px solid #f5d080`, borderRadius: 10, padding: 12, color: C.primary, fontSize: 12, marginBottom: 16, fontWeight: 600, lineHeight: 1.6 }}>
               Format: <strong>OpenPana-ClosePana</strong> (e.g. <code>128-456</code>)<br />
               Digit auto-calculate hoga. Winners ko winning_balance credit milega.
             </div>
@@ -1243,7 +1243,7 @@ return (
               <label style={B.label}>Site URL (Domain)</label>
               <input style={B.input} placeholder="https://yourdomain.com" value={settings.site_url} onChange={e => setSettings(s => ({ ...s, site_url: e.target.value }))} />
               {settings.site_url && (
-                <div style={{ background: '#E3F2FD', borderRadius: 8, padding: '8px 12px', marginTop: -8, marginBottom: 12, fontSize: 12, color: '#1565C0', fontWeight: 600 }}>
+                <div style={{ background: '#fff3e0', borderRadius: 8, padding: '8px 12px', marginTop: -8, marginBottom: 12, fontSize: 12, color: '#b87200', fontWeight: 600 }}>
                   🔗 Referral Link: <strong>{settings.site_url}?ref=CODE</strong>
                 </div>
               )}
@@ -1286,7 +1286,7 @@ return (
                     )}
                   </div>
                 </div>
-                <div style={{ marginTop: 12, background: '#E3F2FD', borderRadius: 8, padding: '10px 12px', fontSize: 12, color: C.primary, fontWeight: 600 }}>
+                <div style={{ marginTop: 12, background: '#fff3e0', borderRadius: 8, padding: '10px 12px', fontSize: 12, color: '#b87200', fontWeight: 600 }}>
                   💡 <strong>Note:</strong> Custom QR upload karo toh deposit page pe dikhega. Nahi karo toh Auto QR dikhega.
                 </div>
               </div>
@@ -1338,7 +1338,7 @@ return (
               <label style={B.label}>Confirm New Password</label>
               <input type="password" style={{ ...B.input, marginBottom: 0 }} placeholder="Dobara likhein" value={pwForm.confirmPass} onChange={e => setPwForm(f => ({ ...f, confirmPass: e.target.value }))} />
               <button onClick={changeAdminPassword} disabled={pwSaving}
-                style={{ ...B.btn, marginTop: 14, background: pwSaving ? '#90CAF9' : 'linear-gradient(135deg, #6A1B9A, #8E24AA)', opacity: pwSaving ? 0.8 : 1 }}>
+                style={{ ...B.btn, marginTop: 14, background: pwSaving ? '#f5d080' : 'linear-gradient(135deg, #6A1B9A, #8E24AA)', opacity: pwSaving ? 0.8 : 1 }}>
                 {pwSaving ? '⏳ CHANGING...' : '🔐 CHANGE PASSWORD'}
               </button>
               <div style={{ fontSize: 11, color: C.textMuted, marginTop: 8, textAlign: 'center', fontWeight: 600 }}>
@@ -1364,7 +1364,7 @@ return (
 
             <button onClick={saveSettings} disabled={savingSettings} style={{
               ...B.btn, marginTop: 8, marginBottom: 30,
-              background: settingsSaved ? 'linear-gradient(135deg,#2E7D32,#43A047)' : savingSettings ? '#90CAF9' : B.btn.background,
+              background: settingsSaved ? 'linear-gradient(135deg,#2E7D32,#43A047)' : savingSettings ? '#f5d080' : B.btn.background,
               opacity: savingSettings ? 0.8 : 1
             }}>
               {savingSettings ? '⏳ SAVING...' : settingsSaved ? '✅ SAVED!' : '💾 SAVE ALL SETTINGS'}
