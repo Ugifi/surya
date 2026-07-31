@@ -17,10 +17,10 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
   });
 
   const banners = [
-    { bg: 'linear-gradient(135deg, #1a3a6e, #2356b0)', text: 'DAILY Disawar', sub: 'Win Big Every Day!', emoji: '🏆', eyebrow: 'MATKAKING PRESENTS' },
-    { bg: 'linear-gradient(135deg, #0f2d5e, #1e4fa0)', text: '100% SAFE & TRUSTED', sub: 'Instant Withdrawal', emoji: '🔒', eyebrow: 'MATKAKING PRESENTS' },
-    { bg: 'linear-gradient(135deg, #163368, #2a5bbf)', text: 'FAST WITHDRAWAL', sub: 'Instant Money Transfer', emoji: '⚡', eyebrow: 'MATKAKING PRESENTS' },
-    { bg: 'linear-gradient(135deg, #0d2a58, #1e4a9e)', text: 'NEW GAMES ADDED', sub: 'Play & Win Now!', emoji: '🎯', eyebrow: 'MATKAKING PRESENTS' },
+    { bg: 'linear-gradient(135deg, #b34700, #FF8C00)', text: 'DAILY Disawar', sub: 'Win Big Every Day!', emoji: '🏆', eyebrow: 'MATKAKING PRESENTS' },
+    { bg: 'linear-gradient(135deg, #c43e00, #FF6F00)', text: '100% SAFE & TRUSTED', sub: 'Instant Withdrawal', emoji: '🔒', eyebrow: 'MATKAKING PRESENTS' },
+    { bg: 'linear-gradient(135deg, #e65c00, #FFA500)', text: 'FAST WITHDRAWAL', sub: 'Instant Money Transfer', emoji: '⚡', eyebrow: 'MATKAKING PRESENTS' },
+    { bg: 'linear-gradient(135deg, #bf360c, #FF7043)', text: 'NEW GAMES ADDED', sub: 'Play & Win Now!', emoji: '🎯', eyebrow: 'MATKAKING PRESENTS' },
   ];
 
   useEffect(() => {
@@ -191,7 +191,7 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
   // ── DISAWAR PAGE ──────────────────────────────────────────────
   if (showDisawar) {
     return (
-      <div style={{ background: '#eef2f7', minHeight: '100vh', paddingBottom: 80, fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}>
+      <div style={{ background: '#f5f5f5', minHeight: '100vh', paddingBottom: 80, fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}>
         {/* ✅ BACK TO ADMIN BUTTON */}
         {isAdminImpersonating && (
           <button onClick={backToAdmin} style={{ position: 'fixed', top: 10, right: 10, zIndex: 9999, background: '#0d1b5e', color: '#FFD700', padding: '8px 16px', borderRadius: 8, fontWeight: 800, border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.3)', cursor: 'pointer' }}>
@@ -212,13 +212,13 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
           .hs-status-closed { font-size:12px; font-weight:700; color:#c0392b; display:flex; align-items:center; gap:5px; margin-bottom:8px; }
           .hs-status-closed::before { content:''; width:7px; height:7px; border-radius:50%; background:#c0392b; display:inline-block; }
           .hs-result { margin-bottom:10px; }
-          .hs-result-text { font-size:15px; font-weight:700; color:#2a6dd9; letter-spacing:3px; }
+          .hs-result-text { font-size:15px; font-weight:700; color:#FF8C00; letter-spacing:3px; }
           .hs-card-divider { height:1px; background:#eef2f7; margin-bottom:10px; }
           .hs-bottom-row { display:flex; align-items:center; justify-content:space-between; }
           .hs-time-wrap { display:flex; align-items:center; gap:0; }
           .hs-time-block { width:90px; flex-shrink:0; }
           .hs-time-lbl { font-size:11px; color:#8a9bb5; font-weight:600; margin-bottom:2px; }
-          .hs-time-val { font-size:14px; font-weight:800; color:#2a6dd9; }
+          .hs-time-val { font-size:14px; font-weight:800; color:#FF8C00; }
           .hs-time-sep { width:1px; height:32px; background:#e2e9f4; margin:0 16px; flex-shrink:0; }
           .hs-play-circle { width:46px; height:46px; border-radius:50%; border:none; background:linear-gradient(135deg,#1e4fa0,#2a6dd9); display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; box-shadow:0 4px 14px rgba(30,79,160,0.4); transition:transform 0.2s,box-shadow 0.2s; }
           .hs-play-circle:hover { transform:scale(1.08); box-shadow:0 6px 20px rgba(30,79,160,0.5); }
@@ -228,7 +228,7 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
           .hs-play-tri-off { width:0; height:0; border-top:8px solid transparent; border-bottom:8px solid transparent; border-left:14px solid #b0bdd4; margin-left:3px; }
         `}</style>
 
-        <div style={{ background: 'linear-gradient(135deg, #1a3a6e, #2356b0)', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12, boxShadow: '0 3px 14px rgba(26,58,110,0.3)', position: 'sticky', top: 0, zIndex: 100 }}>
+        <div style={{ background: 'linear-gradient(135deg, #e65c00, #FFA500)', padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 12, boxShadow: '0 3px 14px rgba(255,140,0,0.35)', position: 'sticky', top: 0, zIndex: 100 }}>
           <button onClick={() => setShowDisawar(false)} style={{ background: 'rgba(255,255,255,0.15)', border: 'none', borderRadius: 10, width: 38, height: 38, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <polyline points="15 18 9 12 15 6"/>
@@ -260,7 +260,7 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
                 <div className="hs-card-top">
                   <div className="hs-card-name">{g.name}</div>
                   <div className="hs-card-cal">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a6dd9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="4" width="18" height="18" rx="2"/>
                       <line x1="16" y1="2" x2="16" y2="6"/>
                       <line x1="8" y1="2" x2="8" y2="6"/>
@@ -300,7 +300,7 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
 
   // ── MAIN HOME ─────────────────────────────────────────────────
   return (
-    <div style={{ background: '#eef2f7', minHeight: '100vh', paddingBottom: 80, fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}>
+    <div style={{ background: '#f5f5f5', minHeight: '100vh', paddingBottom: 80, fontFamily: "'Nunito', 'Segoe UI', sans-serif" }}>
       
       {/* ✅ BACK TO ADMIN BUTTON */}
       {isAdminImpersonating && (
@@ -313,7 +313,7 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
         @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@700;800&display=swap');
         * { box-sizing: border-box; }
 
-        .hs-ticker { background:linear-gradient(90deg,#1a3a6e,#2356b0); padding:7px 0; overflow:hidden; white-space:nowrap; }
+        .hs-ticker { background:linear-gradient(90deg,#e65c00,#f9a825); padding:7px 0; overflow:hidden; white-space:nowrap; }
         .hs-ticker-inner { display:inline-block; animation:tickerScroll 22s linear infinite; color:#fff; font-size:12px; font-weight:700; letter-spacing:0.8px; }
         @keyframes tickerScroll { 0%{transform:translateX(100vw)} 100%{transform:translateX(-100%)} }
 
@@ -324,8 +324,8 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
         .hs-banner-dot.active { background:#fff; width:20px; }
 
         .hs-action-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:12px 12px 0; }
-        .hs-btn { border:none; border-radius:10px; padding:13px 10px; font-family:'Nunito',sans-serif; font-size:14px; font-weight:900; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:transform 0.15s,box-shadow 0.15s; letter-spacing:0.4px; text-transform:uppercase; color:#fff; background:linear-gradient(135deg,#1e4fa0,#2a6dd9); box-shadow:0 4px 14px rgba(30,79,160,0.35); }
-        .hs-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(30,79,160,0.45); }
+        .hs-btn { border:none; border-radius:10px; padding:13px 10px; font-family:'Nunito',sans-serif; font-size:14px; font-weight:900; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:transform 0.15s,box-shadow 0.15s; letter-spacing:0.4px; text-transform:uppercase; color:#fff; background:linear-gradient(135deg,#FF8C00,#FFA500); box-shadow:0 4px 14px rgba(255,140,0,0.40); }
+        .hs-btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(255,140,0,0.55); }
         .hs-btn:active { transform:scale(0.97); }
 
         .hs-king-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:10px 12px 0; }
@@ -337,9 +337,9 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
         .hs-king-name { font-family:'Nunito',sans-serif; font-size:13px; font-weight:900; color:'#fff', letterSpacing:0.3px; text-transform:uppercase; }
 
         .hs-live-header { display:flex; align-items:center; gap:8px; padding:16px 14px 6px; }
-        .hs-live-dot { width:9px; height:9px; border-radius:50%; background:#2a6dd9; animation:livePulse 1.4s ease-in-out infinite; flex-shrink:0; }
+        .hs-live-dot { width:9px; height:9px; border-radius:50%; background:#FF8C00; animation:livePulse 1.4s ease-in-out infinite; flex-shrink:0; }
         @keyframes livePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
-        .hs-live-title { font-size:14px; font-weight:900; color:#1a3a6e; letter-spacing:1px; text-transform:uppercase; }
+        .hs-live-title { font-size:14px; font-weight:900; color:#333; letter-spacing:1px; text-transform:uppercase; }
 
         .hs-card { background:#fff; border-radius:14px; margin:8px 12px 0; overflow:hidden; box-shadow:0 2px 10px rgba(26,58,110,0.08); border:1px solid #e2e9f4; padding:3px 8px; transition:box-shadow 0.2s; }
         .hs-card:hover { box-shadow:0 6px 20px rgba(26,58,110,0.13); }
@@ -351,22 +351,22 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
         .hs-status-closed { font-size:12px; font-weight:700; color:#c0392b; display:flex; align-items:center; gap:5px; margin-bottom:8px; }
         .hs-status-closed::before { content:''; width:7px; height:7px; border-radius:50%; background:#c0392b; display:inline-block; }
         .hs-result { margin-bottom:10px; }
-        .hs-result-text { font-size:15px; font-weight:700; color:#2a6dd9; letter-spacing:3px; }
+        .hs-result-text { font-size:15px; font-weight:700; color:#FF8C00; letter-spacing:3px; }
         .hs-card-divider { height:1px; background:#eef2f7; margin-bottom:10px; }
         .hs-bottom-row { display:flex; align-items:center; justify-content:space-between; }
         .hs-time-wrap { display:flex; align-items:center; }
         .hs-time-block { width:90px; flex-shrink:0; }
         .hs-time-lbl { font-size:11px; color:#8a9bb5; font-weight:600; margin-bottom:2px; }
-        .hs-time-val { font-size:14px; font-weight:800; color:#2a6dd9; }
+        .hs-time-val { font-size:14px; font-weight:800; color:#FF8C00; }
         .hs-time-sep { width:1px; height:32px; background:#e2e9f4; margin:0 16px; flex-shrink:0; }
-        .hs-play-circle { width:46px; height:46px; border-radius:50%; border:none; background:linear-gradient(135deg,#1e4fa0,#2a6dd9); display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; box-shadow:0 4px 14px rgba(30,79,160,0.4); transition:transform 0.2s,box-shadow 0.2s; }
-        .hs-play-circle:hover { transform:scale(1.08); box-shadow:0 6px 20px rgba(30,79,160,0.5); }
+        .hs-play-circle { width:46px; height:46px; border-radius:50%; border:none; background:linear-gradient(135deg,#FF8C00,#FFA500); display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; box-shadow:0 4px 14px rgba(255,140,0,0.45); transition:transform 0.2s,box-shadow 0.2s; }
+        .hs-play-circle:hover { transform:scale(1.08); box-shadow:0 6px 20px rgba(255,140,0,0.55); }
         .hs-play-circle:active { transform:scale(0.95); }
         .hs-play-circle:disabled { background:#dde4ef; cursor:not-allowed; box-shadow:none; }
         .hs-play-tri { width:0; height:0; border-top:8px solid transparent; border-bottom:8px solid transparent; border-left:14px solid #fff; margin-left:3px; }
         .hs-play-tri-off { width:0; height:0; border-top:8px solid transparent; border-bottom:8px solid transparent; border-left:14px solid #b0bdd4; margin-left:3px; }
         .hs-loader { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 20px; gap:14px; }
-        .hs-loader-ring { width:44px; height:44px; border:4px solid #d0daea; border-top-color:#2a6dd9; border-radius:50%; animation:loaderSpin 0.8s linear infinite; }
+        .hs-loader-ring { width:44px; height:44px; border:4px solid #ffe0b2; border-top-color:#FF8C00; border-radius:50%; animation:loaderSpin 0.8s linear infinite; }
         @keyframes loaderSpin { to{transform:rotate(360deg)} }
       `}</style>
 
@@ -437,7 +437,7 @@ export default function HomeScreen({ wallet, onAdd, onWith, onPlay, navigate, ap
               <div className="hs-card-top">
                 <div className="hs-card-name">{g.name}</div>
                 <div className="hs-card-cal">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2a6dd9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF8C00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="4" width="18" height="18" rx="2"/>
                     <line x1="16" y1="2" x2="16" y2="6"/>
                     <line x1="8" y1="2" x2="8" y2="6"/>
