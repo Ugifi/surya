@@ -63,7 +63,7 @@ export function AddModal({ onClose, onSuccess }) {
   const S = {
     overlay: {
       position: 'fixed', inset: 0,
-      background: 'rgba(13,71,161,0.55)',
+      background: 'rgba(184,114,0,0.45)',
       backdropFilter: 'blur(4px)',
       display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
       zIndex: 10000
@@ -73,30 +73,30 @@ export function AddModal({ onClose, onSuccess }) {
       width: '100%', maxWidth: '420px',
       borderTopLeftRadius: 28, borderTopRightRadius: 28,
       padding: '24px',
-      boxShadow: '0 -10px 40px rgba(13,71,161,0.18)',
+      boxShadow: '0 -10px 40px rgba(232,160,0,0.18)',
       maxHeight: '90vh', overflowY: 'auto',
       animation: 'slideUp 0.3s ease-out'
     },
-    handle: { width: 40, height: 4, background: '#BBDEFB', borderRadius: 4, margin: '0 auto 16px' },
-    title: { margin: '0 0 20px', color: '#0D47A1', fontSize: 18, fontWeight: 900, letterSpacing: 1, textAlign: 'center' },
+    handle: { width: 40, height: 4, background: '#f5d080', borderRadius: 4, margin: '0 auto 16px' },
+    title: { margin: '0 0 20px', color: '#b87200', fontSize: 18, fontWeight: 900, letterSpacing: 1, textAlign: 'center' },
     fg: { marginBottom: 16 },
-    label: { fontSize: 11, color: '#1565C0', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6, display: 'block', marginLeft: 4 },
+    label: { fontSize: 11, color: '#b87200', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6, display: 'block', marginLeft: 4 },
     input: {
-      width: '100%', background: '#F5F9FF',
-      border: '2px solid #BBDEFB', borderRadius: 14,
-      padding: '14px', color: '#0D47A1', fontSize: 15, fontWeight: 700,
+      width: '100%', background: '#fff8ee',
+      border: '2px solid #f5d080', borderRadius: 14,
+      padding: '14px', color: '#1a1a1a', fontSize: 15, fontWeight: 700,
       outline: 'none', boxSizing: 'border-box'
     },
     btnPrimary: {
       width: '100%',
-      background: 'linear-gradient(135deg, #1565C0 0%, #1E88E5 100%)',
+      background: 'linear-gradient(135deg, #e8a000 0%, #f5a623 100%)',
       color: '#fff', border: 'none', borderRadius: 14,
       padding: '16px', fontSize: 15, fontWeight: 900, cursor: 'pointer',
       letterSpacing: 1, textTransform: 'uppercase',
-      boxShadow: '0 6px 20px rgba(21,101,192,0.30)', marginBottom: 12
+      boxShadow: '0 6px 20px rgba(232,160,0,0.35)', marginBottom: 12
     },
     btnSecondary: {
-      width: '100%', background: '#F5F9FF', color: '#E53935',
+      width: '100%', background: '#fff8ee', color: '#E53935',
       border: '2px solid #FFCDD2', borderRadius: 14,
       padding: '14px', fontSize: 14, fontWeight: 800,
       cursor: 'pointer', textTransform: 'uppercase'
@@ -107,7 +107,7 @@ export function AddModal({ onClose, onSuccess }) {
     <div style={S.overlay} onClick={e => e.target === e.currentTarget && onClose()}>
       <style>{`
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        .mk-input:focus { border-color: #1976D2 !important; box-shadow: 0 0 0 3px rgba(21,101,192,0.12); }
+        .mk-input:focus { border-color: #e8a000 !important; box-shadow: 0 0 0 3px rgba(232,160,0,0.12); }
         .mk-chip-btn { transition: all 0.2s ease; }
         .mk-chip-btn:hover { transform: translateY(-1px); }
       `}</style>
@@ -138,9 +138,9 @@ export function AddModal({ onClose, onSuccess }) {
                   onClick={() => { setAmt(String(c)); setChip(c); }}
                   style={{
                     flex: '1 1 calc(33% - 8px)', padding: '10px 0',
-                    background: chip === c ? '#1565C0' : '#EEF4FF',
-                    color: chip === c ? '#fff' : '#1565C0',
-                    border: chip === c ? 'none' : '1.5px solid #BBDEFB',
+                    background: chip === c ? '#e8a000' : '#fff8ee',
+                    color: chip === c ? '#fff' : '#b87200',
+                    border: chip === c ? 'none' : '1.5px solid #f5d080',
                     borderRadius: 10, fontSize: 14, fontWeight: 800, cursor: 'pointer'
                   }}>
                   ₹{c.toLocaleString()}
@@ -151,11 +151,11 @@ export function AddModal({ onClose, onSuccess }) {
 
           {upiId && (
             <div style={{
-              background: '#EEF4FF', border: '1.5px solid #BBDEFB',
+              background: '#fff8ee', border: '1.5px solid #f5d080',
               borderRadius: 12, padding: '12px', marginBottom: 16,
-              fontSize: 13, color: '#1565C0', textAlign: 'center', fontWeight: 700
+              fontSize: 13, color: '#b87200', textAlign: 'center', fontWeight: 700
             }}>
-              💳 Pay to UPI: <strong style={{ color: '#0D47A1' }}>{upiId}</strong>
+              💳 Pay to UPI: <strong style={{ color: '#8a5500' }}>{upiId}</strong>
             </div>
           )}
 
@@ -174,16 +174,16 @@ export function AddModal({ onClose, onSuccess }) {
 
           <div style={{ textAlign: 'center', marginBottom: 16 }}>
             <div style={{
-              background: '#F5F9FF', borderRadius: 16, padding: 16,
-              display: 'inline-block', border: '2px solid #BBDEFB'
+              background: '#fff8ee', borderRadius: 16, padding: 16,
+              display: 'inline-block', border: '2px solid #f5d080'
             }}>
               {qrUrl
                 ? <img src={qrUrl} alt="QR Code" width={180} height={180} style={{ display: 'block', borderRadius: 8 }} />
                 : <div style={{ width: 180, height: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#90CAF9', fontSize: 13, fontWeight: 700 }}>Loading QR...</div>
               }
             </div>
-            <div style={{ fontSize: 12, color: '#1565C0', marginTop: 12, fontWeight: 800 }}>
-              UPI ID: <span style={{ color: '#0D47A1' }}>{upiId}</span>
+            <div style={{ fontSize: 12, color: '#b87200', marginTop: 12, fontWeight: 800 }}>
+              UPI ID: <span style={{ color: '#8a5500' }}>{upiId}</span>
             </div>
             <div style={{ fontSize: 24, fontWeight: 900, color: '#2E7D32', marginTop: 6 }}>
               ₹{Number(amt).toLocaleString()}
@@ -203,9 +203,9 @@ export function AddModal({ onClose, onSuccess }) {
           </div>
 
           <div style={{
-            background: '#EEF4FF', border: '1.5px solid #90CAF9',
+            background: '#fff8ee', border: '1.5px solid #f5d080',
             borderRadius: 12, padding: '10px 14px',
-            fontSize: 12, color: '#1565C0', marginBottom: 16,
+            fontSize: 12, color: '#b87200', marginBottom: 16,
             lineHeight: 1.6, fontWeight: 600
           }}>
             ✅ Pay karke <strong>Transaction No / UTR</strong> daalo<br />
@@ -218,7 +218,7 @@ export function AddModal({ onClose, onSuccess }) {
             disabled={loading || !txnNo.trim()}>
             {loading ? 'Submitting...' : '✅ SUBMIT UTR'}
           </button>
-          <button style={{ ...S.btnSecondary, color: '#1565C0', border: '2px solid #BBDEFB' }} onClick={() => setStep(1)}>
+          <button style={{ ...S.btnSecondary, color: '#b87200', border: '2px solid #f5d080' }} onClick={() => setStep(1)}>
             ← BACK
           </button>
         </>}
@@ -300,7 +300,7 @@ export function WithdrawModal({ wallet, onClose, onSuccess }) {
   const S = {
     overlay: {
       position: 'fixed', inset: 0,
-      background: 'rgba(13,71,161,0.55)',
+      background: 'rgba(184,114,0,0.45)',
       backdropFilter: 'blur(4px)',
       display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
       zIndex: 10000
@@ -310,30 +310,30 @@ export function WithdrawModal({ wallet, onClose, onSuccess }) {
       width: '100%', maxWidth: '420px',
       borderTopLeftRadius: 28, borderTopRightRadius: 28,
       padding: '24px',
-      boxShadow: '0 -10px 40px rgba(13,71,161,0.18)',
+      boxShadow: '0 -10px 40px rgba(232,160,0,0.18)',
       maxHeight: '90vh', overflowY: 'auto',
       animation: 'slideUp 0.3s ease-out'
     },
-    handle: { width: 40, height: 4, background: '#BBDEFB', borderRadius: 4, margin: '0 auto 16px' },
-    title: { margin: '0 0 20px', color: '#0D47A1', fontSize: 18, fontWeight: 900, letterSpacing: 1, textAlign: 'center' },
+    handle: { width: 40, height: 4, background: '#f5d080', borderRadius: 4, margin: '0 auto 16px' },
+    title: { margin: '0 0 20px', color: '#b87200', fontSize: 18, fontWeight: 900, letterSpacing: 1, textAlign: 'center' },
     fg: { marginBottom: 14 },
-    label: { fontSize: 11, color: '#1565C0', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6, display: 'block', marginLeft: 4 },
+    label: { fontSize: 11, color: '#b87200', fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 6, display: 'block', marginLeft: 4 },
     input: {
-      width: '100%', background: '#F5F9FF',
-      border: '2px solid #BBDEFB', borderRadius: 12,
-      padding: '12px 14px', color: '#0D47A1', fontSize: 14, fontWeight: 700,
+      width: '100%', background: '#fff8ee',
+      border: '2px solid #f5d080', borderRadius: 12,
+      padding: '12px 14px', color: '#1a1a1a', fontSize: 14, fontWeight: 700,
       outline: 'none', boxSizing: 'border-box'
     },
     btnPrimary: {
       width: '100%',
-      background: 'linear-gradient(135deg, #1565C0 0%, #1E88E5 100%)',
+      background: 'linear-gradient(135deg, #e8a000 0%, #f5a623 100%)',
       color: '#fff', border: 'none', borderRadius: 14,
       padding: '16px', fontSize: 15, fontWeight: 900, cursor: 'pointer',
       letterSpacing: 1, textTransform: 'uppercase',
-      boxShadow: '0 6px 20px rgba(21,101,192,0.30)', marginBottom: 12
+      boxShadow: '0 6px 20px rgba(232,160,0,0.35)', marginBottom: 12
     },
     btnSecondary: {
-      width: '100%', background: '#F5F9FF', color: '#E53935',
+      width: '100%', background: '#fff8ee', color: '#E53935',
       border: '2px solid #FFCDD2', borderRadius: 14,
       padding: '14px', fontSize: 14, fontWeight: 800,
       cursor: 'pointer', textTransform: 'uppercase'
@@ -344,7 +344,7 @@ export function WithdrawModal({ wallet, onClose, onSuccess }) {
     <div style={S.overlay} onClick={e => e.target === e.currentTarget && onClose()}>
       <style>{`
         @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        .mk-input:focus { border-color: #1976D2 !important; box-shadow: 0 0 0 3px rgba(21,101,192,0.12); }
+        .mk-input:focus { border-color: #e8a000 !important; box-shadow: 0 0 0 3px rgba(232,160,0,0.12); }
       `}</style>
 
       <div style={S.modal}>
@@ -363,7 +363,7 @@ export function WithdrawModal({ wallet, onClose, onSuccess }) {
             <span style={{ color: '#2E7D32', fontSize: 13, fontWeight: 800 }}>
               💰 Available: ₹{wallet.toLocaleString()}
             </span>
-            <span style={{ color: '#1565C0', fontSize: 12, fontWeight: 800 }}>Min: ₹{MIN}</span>
+            <span style={{ color: '#b87200', fontSize: 12, fontWeight: 800 }}>Min: ₹{MIN}</span>
           </div>
 
           {/* Amount */}
@@ -392,9 +392,9 @@ export function WithdrawModal({ wallet, onClose, onSuccess }) {
                   onClick={() => setMethod(m.id)}
                   style={{
                     flex: 1, padding: '12px',
-                    background: method === m.id ? '#1565C0' : '#EEF4FF',
-                    color: method === m.id ? '#fff' : '#1565C0',
-                    border: method === m.id ? 'none' : '1.5px solid #BBDEFB',
+                    background: method === m.id ? '#e8a000' : '#fff8ee',
+                    color: method === m.id ? '#fff' : '#b87200',
+                    border: method === m.id ? 'none' : '1.5px solid #f5d080',
                     borderRadius: 12, fontSize: 13, fontWeight: 800,
                     display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
                     transition: 'all 0.2s', cursor: 'pointer'
@@ -455,9 +455,9 @@ export function WithdrawModal({ wallet, onClose, onSuccess }) {
           {/* Step 2 — Success */}
           <h3 style={S.title}>⏳ REQUEST SENT!</h3>
           <div style={{
-            background: '#EEF4FF', border: '1.5px solid #90CAF9',
+            background: '#fff8ee', border: '1.5px solid #f5d080',
             borderRadius: 16, padding: '20px', marginBottom: 16,
-            fontSize: 14, color: '#1565C0', lineHeight: 1.6, textAlign: 'center'
+            fontSize: 14, color: '#b87200', lineHeight: 1.6, textAlign: 'center'
           }}>
             <div style={{ fontSize: 40, marginBottom: 10 }}>⏳</div>
             Withdrawal <strong style={{ fontSize: 16 }}>₹{Number(amt).toLocaleString()}</strong> request bheja gaya!<br />
