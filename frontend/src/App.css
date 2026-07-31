@@ -3,24 +3,24 @@
 
 /* ── CSS VARIABLES ── */
 :root {
-  --gold: #FFD700;
-  --gold2: #FFA500;
+  --gold: #e8a000;
+  --gold2: #f5a623;
   --gold3: #FF8C00;
   --green: #00cc44;
   --red: #ff2244;
   --teal: #00e5cc;
-  --bg: #040a04;
-  --card: rgba(255,255,255,0.04);
-  --border: rgba(255,215,0,0.18);
-  --text: #fff;
-  --text-dim: rgba(255,255,255,0.55);
+  --bg: #fff8ee;
+  --card: rgba(255,255,255,0.9);
+  --border: rgba(232,160,0,0.25);
+  --text: #1a1a1a;
+  --text-dim: rgba(30,30,30,0.5);
 
   /* Admin dark theme variables */
-  --admin-bg: #050f05;
-  --admin-card: rgba(10,20,10,0.95);
-  --admin-input-bg: rgba(255,255,255,0.06);
-  --admin-input-border: rgba(255,215,0,0.25);
-  --admin-content-bg: #070f07;
+  --admin-bg: #fff8ee;
+  --admin-card: rgba(255,255,255,0.97);
+  --admin-input-bg: rgba(232,160,0,0.06);
+  --admin-input-border: rgba(232,160,0,0.3);
+  --admin-content-bg: #fff3e0;
 }
 
 /* ── RESET & BASE ── */
@@ -29,8 +29,8 @@ body{
   font-family:'Rajdhani',sans-serif;
   min-height:100vh;
   overflow-x:hidden;
-  background:radial-gradient(ellipse 140% 80% at 50% 0%,#0d2e1a 0%,#050f05 55%,#000 100%);
-  color:#fff;
+  background:#fff8ee;
+  color:#1a1a1a;
   user-select:none;
 }
 #root{max-width:430px;margin:0 auto;min-height:100vh;position:relative;background:transparent}
@@ -39,12 +39,12 @@ body{
    TOP NAV
 ══════════════════════════════════════════ */
 .topnav{
-  background:linear-gradient(135deg,#040e04 0%,#0d2210 60%,#1a1200 100%);
-  border-bottom:1.5px solid var(--border);
+  background:linear-gradient(135deg,#e8a000 0%,#f5a623 60%,#FF8C00 100%);
+  border-bottom:1.5px solid rgba(200,120,0,0.3);
   padding:0 14px;height:52px;
   display:flex;align-items:center;justify-content:space-between;
   position:sticky;top:0;z-index:100;
-  box-shadow:0 2px 20px rgba(0,0,0,0.6);
+  box-shadow:0 2px 20px rgba(232,160,0,0.3);
 }
 .tn-left{display:flex;align-items:center;gap:10px}
 .back-btn{color:var(--gold);font-size:20px;cursor:pointer;padding:4px 6px 4px 0;line-height:1;transition:transform 0.2s}
@@ -58,30 +58,30 @@ body{
   font-family:'Teko',sans-serif;
   font-size:20px;
   font-weight:700;
-  color:var(--gold);
+  color:#fff;
   letter-spacing:3px;
-  text-shadow:0 0 16px rgba(255,215,0,0.5),0 0 32px rgba(255,165,0,0.2);
+  text-shadow:0 0 16px rgba(255,255,255,0.5),0 0 32px rgba(255,255,255,0.2);
   text-transform:uppercase;
 }
 .brand em{
-  color:#fff;
+  color:#fff3cc;
   font-style:normal;
   opacity:0.9;
 }
 
 .tn-right{display:flex;align-items:center;gap:10px}
 .tn-wallet{
-  background:rgba(255,215,0,0.08);
-  border:1.5px solid rgba(255,215,0,0.3);
+  background:rgba(255,255,255,0.2);
+  border:1.5px solid rgba(255,255,255,0.5);
   border-radius:20px;
   padding:5px 12px;
   display:flex;align-items:center;gap:6px;
   cursor:pointer;
   transition:all 0.2s;
 }
-.tn-wallet:hover{background:rgba(255,215,0,0.18);transform:scale(1.05);border-color:var(--gold)}
+.tn-wallet:hover{background:rgba(255,255,255,0.35);transform:scale(1.05);border-color:#fff}
 .tn-wallet span{
-  color:var(--gold);
+  color:#fff;
   font-size:14px;
   font-weight:700;
   font-family:'Teko',sans-serif;
@@ -89,7 +89,7 @@ body{
 }
 .tn-filter{background:rgba(255,215,0,0.08);border:1.5px solid rgba(255,215,0,0.25);border-radius:6px;padding:5px 10px;color:var(--gold);font-size:11px;font-weight:700;cursor:pointer;display:none;letter-spacing:1px}
 .tn-filter.show{display:flex;align-items:center;gap:4px}
-.tn-bell{width:32px;height:32px;background:rgba(255,215,0,0.08);border:1.5px solid rgba(255,215,0,0.25);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;position:relative;transition:all 0.2s}
+.tn-bell{width:32px;height:32px;background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.4);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;position:relative;transition:all 0.2s}
 .tn-bell:hover{background:rgba(255,215,0,0.2);border-color:var(--gold)}
 .bell-dot{position:absolute;top:2px;right:2px;width:8px;height:8px;background:var(--red);border-radius:50%}
 
@@ -100,7 +100,7 @@ body{
 .marquee-track{display:inline-block;animation:mscroll 12s linear infinite;white-space:nowrap}
 .marquee-track .mtxt{
   font-size:11px;
-  color:var(--gold);
+  color:#b87200;
   font-weight:600;
   letter-spacing:2px;
   font-family:'Teko',sans-serif;
@@ -1016,7 +1016,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active {
     /* Yeh background ko transparent rakhega */
-    -webkit-box-shadow: 0 0 0px 1000px #0d2a1a inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px #fff8ee  inset !important;
     /* Yeh text ka colour wapas green/white kar dega */
     -webkit-text-fill-color: #1dfe1a !important;
     /* Smooth transition taaki white flash na ho */
