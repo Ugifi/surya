@@ -313,7 +313,7 @@ export default function AuthScreen({ onLogin }) {
               />
             </div>
             {referralCode && (
-              <div style={{ fontSize: 11, color: '#1565C0', marginTop: 5, marginLeft: 4, fontWeight: 600 }}>
+              <div style={{ fontSize: 11, color: '#b87200', marginTop: 5, marginLeft: 4, fontWeight: 600 }}>
                 🎉 Dono ko ₹50 bonus milega pehle deposit par!
               </div>
             )}
@@ -346,14 +346,14 @@ export default function AuthScreen({ onLogin }) {
 }
 
 const C = {
-  navBg:    'linear-gradient(135deg, #0d1b5e 0%, #1a2f8f 60%, #1565C0 100%)',
-  primary:  '#1565C0',
-  accent:   '#FFD700',
-  textMain: '#0d1b5e',
-  textSub:  '#1565C0',
-  textMuted:'#5C6BC0',
-  inputBg:  '#F0F4FF',
-  inputBdr: '#90CAF9',
+  navBg:    'linear-gradient(135deg, #b87200 0%, #e8a000 60%, #f5a623 100%)',
+  primary:  '#e8a000',
+  accent:   '#fff3cc',
+  textMain: '#1a1a1a',
+  textSub:  '#b87200',
+  textMuted:'#c8a000',
+  inputBg:  '#fff8ee',
+  inputBdr: '#f5d080',
   danger:   '#C62828',
   dangerBg: '#FFEBEE',
 };
@@ -368,7 +368,7 @@ const S = {
     position: 'relative', overflow: 'hidden',
   },
   bgCircle1: { position: 'absolute', top: '-5%', left: '-10%', width: 300, height: 300, borderRadius: '50%', background: 'rgba(255,255,255,0.05)', filter: 'blur(60px)', zIndex: 0 },
-  bgCircle2: { position: 'absolute', bottom: '-10%', right: '-10%', width: 350, height: 350, borderRadius: '50%', background: 'rgba(255,215,0,0.08)', filter: 'blur(70px)', zIndex: 0 },
+  bgCircle2: { position: 'absolute', bottom: '-10%', right: '-10%', width: 350, height: 350, borderRadius: '50%', background: 'rgba(232,160,0,0.12)', filter: 'blur(70px)', zIndex: 0 },
   bgCircle3: { position: 'absolute', top: '40%', right: '5%', width: 200, height: 200, borderRadius: '50%', background: 'rgba(255,255,255,0.04)', filter: 'blur(50px)', zIndex: 0 },
   logoWrap: { position: 'relative', zIndex: 1, textAlign: 'center', padding: '50px 0 30px' },
   logoCircle: {
@@ -385,12 +385,12 @@ const S = {
     position: 'relative', zIndex: 1,
     background: 'rgba(255,255,255,0.97)', borderRadius: 22, padding: '28px 24px',
     width: '100%', maxWidth: 400,
-    boxShadow: '0 20px 60px rgba(13,27,94,0.25)',
+    boxShadow: '0 20px 60px rgba(232,160,0,0.15)',
     border: '1.5px solid rgba(255,255,255,0.5)',
   },
   tabs: { display: 'flex', background: C.inputBg, borderRadius: 14, padding: 4, marginBottom: 24 },
   tab: { flex: 1, textAlign: 'center', padding: '12px 0', fontSize: 13, fontWeight: 800, cursor: 'pointer', borderRadius: 10, color: C.textMuted, letterSpacing: 0.5 },
-  tabActive: { background: 'linear-gradient(135deg, #0d1b5e 0%, #1565C0 100%)', color: '#fff', boxShadow: '0 4px 14px rgba(21,101,192,0.35)' },
+  tabActive: { background: 'linear-gradient(135deg, #e8a000 0%, #f5a623 100%)', color: '#fff', boxShadow: '0 4px 14px rgba(232,160,0,0.35)' },
   fg: { marginBottom: 18 },
   lbl: { fontSize: 11, color: C.textSub, fontWeight: 800, textTransform: 'uppercase', letterSpacing: 1, display: 'block', marginBottom: 7, marginLeft: 2 },
   inputWrap: { display: 'flex', alignItems: 'center', background: C.inputBg, border: `2px solid ${C.inputBdr}`, borderRadius: 12, overflow: 'hidden', position: 'relative' },
@@ -399,7 +399,7 @@ const S = {
   input: { flex: 1, background: 'transparent', border: 'none', padding: '13px 14px', color: C.textMain, fontSize: 15, fontWeight: 600, outline: 'none' },
   eye: { position: 'absolute', right: 14, cursor: 'pointer', fontSize: 18 },
   errBox: { background: C.dangerBg, borderLeft: `4px solid ${C.danger}`, borderRadius: 8, padding: '10px 14px', color: C.danger, fontSize: 13, fontWeight: 700, marginBottom: 16 },
-  btn: { width: '100%', background: 'linear-gradient(135deg, #0d1b5e 0%, #1565C0 100%)', color: '#fff', border: 'none', borderRadius: 12, padding: '15px', fontSize: 14, fontWeight: 800, cursor: 'pointer', letterSpacing: 1.5, textTransform: 'uppercase', boxShadow: '0 6px 20px rgba(21,101,192,0.35)', marginTop: 8 },
+  btn: { width: '100%', background: 'linear-gradient(135deg, #e8a000 0%, #f5a623 100%)', color: '#fff', border: 'none', borderRadius: 12, padding: '15px', fontSize: 14, fontWeight: 800, cursor: 'pointer', letterSpacing: 1.5, textTransform: 'uppercase', boxShadow: '0 6px 20px rgba(232,160,0,0.35)', marginTop: 8 },
   forgot: { textAlign: 'center', marginTop: 16, fontSize: 13, color: C.primary, fontWeight: 700, cursor: 'pointer', textDecoration: 'underline' },
   footer: { textAlign: 'center', fontSize: 11, color: 'rgba(255,255,255,0.35)', marginTop: 28, zIndex: 1, fontWeight: 600 },
 };
