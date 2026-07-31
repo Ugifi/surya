@@ -29,7 +29,7 @@
   }
 
   // ── SVG ICONS ─────────────────────────────────────────────────────────────────
-  const IconTransaction = ({ size = 24, color = 'currentColor' }) => (
+   const IconTransaction = ({ size = 24, color = 'currentColor' }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="3" y="3" width="18" height="18" rx="2" stroke={color} strokeWidth="1.8"/>
       <line x1="7" y1="8" x2="17" y2="8" stroke={color} strokeWidth="1.8" strokeLinecap="round"/>
