@@ -34,20 +34,20 @@ export default function GameTypePage({ game, onSelect }) {
 
       <style>{`
         .gtp-wrap {
-          background: #f0f4ff;
+          background: #fff8ee;
           min-height: 100vh;
           padding-bottom: 80px;
         }
 
         /* ── BANNER ── */
         .gtp-banner {
-          background: linear-gradient(135deg, #1565C0 0%, #1976D2 60%, #1E88E5 100%);
+          background: linear-gradient(135deg, #e8a000 0%, #f5a623 60%, #FF8C00 100%);
           padding: 16px;
           display: flex;
           align-items: center;
           gap: 12px;
-          border-bottom: 3px solid #0D47A1;
-          box-shadow: 0 2px 12px rgba(21,101,192,0.3);
+          border-bottom: 3px solid #b87200;
+          box-shadow: 0 2px 12px rgba(232,160,0,0.3);
         }
 
         .gtp-banner-icon {
@@ -94,17 +94,17 @@ export default function GameTypePage({ game, onSelect }) {
           flex-direction: column;
           align-items: center;
           cursor: pointer;
-          border: 2px solid #BBDEFB;
+          border: 2px solid #ffe0a0;
           position: relative;
           overflow: hidden;
           transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
-          box-shadow: 0 2px 8px rgba(21,101,192,0.08);
+          box-shadow: 0 2px 8px rgba(232,160,0,0.08);
         }
 
         .gtp-cell:hover {
           transform: translateY(-3px) scale(1.03);
-          box-shadow: 0 8px 24px rgba(21,101,192,0.20);
-          border-color: #1976D2;
+          box-shadow: 0 8px 24px rgba(232,160,0,0.20);
+          border-color: #e8a000;
         }
 
         .gtp-cell:active {
@@ -117,7 +117,7 @@ export default function GameTypePage({ game, onSelect }) {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 3px;
-          background: linear-gradient(90deg, #1565C0, #42A5F5);
+          background: linear-gradient(90deg, #e8a000, #f5a623);
           border-radius: 14px 14px 0 0;
         }
 
@@ -125,9 +125,9 @@ export default function GameTypePage({ game, onSelect }) {
         .gtp-icon-wrap {
           width: 56px;
           height: 56px;
-          background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+          background: linear-gradient(135deg, #fff3d0, #ffe0a0);
           border-radius: 50%;
-          border: 2px solid #90CAF9;
+          border: 2px solid #f5d080;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -142,14 +142,14 @@ export default function GameTypePage({ game, onSelect }) {
         .gtp-icon-wrap svg {
           width: 28px;
           height: 28px;
-          fill: #1565C0;
+          fill: #e8a000;
         }
 
         /* ── LABEL ── */
         .gtp-label {
           font-size: 12px;
           font-weight: 700;
-          color: #0D47A1;
+          color: #b87200;
           text-align: center;
           text-transform: uppercase;
           letter-spacing: 0.8px;
@@ -159,7 +159,7 @@ export default function GameTypePage({ game, onSelect }) {
         /* ── WIN BADGE ── */
         .gtp-win-badge {
           margin-top: 6px;
-          background: linear-gradient(135deg, #1565C0, #42A5F5);
+          background: linear-gradient(135deg, #e8a000, #f5a623);
           color: #fff;
           font-size: 10px;
           font-weight: 800;
