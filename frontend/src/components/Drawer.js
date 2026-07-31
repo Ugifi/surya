@@ -16,19 +16,19 @@ export default function Drawer({ user, onClose, onNav, onLogout }) {
 
   // Reusable Section Label
   const SectionLabel = ({ text }) => (
-    <div style={{ color: '#f0a500', fontSize: 11, fontWeight: 800, padding: '15px 15px 5px 15px', letterSpacing: '1px', textTransform: 'uppercase' }}>
+    <div style={{ color: '#b87200', fontSize: 11, fontWeight: 800, padding: '15px 15px 5px 15px', letterSpacing: '1px', textTransform: 'uppercase' }}>
       {text}
     </div>
   );
 
   // Reusable Drawer Item
-  const DrawerItem = ({ icon, label, onClick, iconBg = '#0d2a1a', iconBorder = '#1a4a2a', txtColor = '#fff' }) => (
-    <div onClick={onClick} style={{ display: 'flex', alignItems: 'center', padding: '12px 15px', borderBottom: '1px solid #0d2a1a', cursor: 'pointer' }}>
+  const DrawerItem = ({ icon, label, onClick, iconBg = 'rgba(232,160,0,0.08)', iconBorder = '#f5d080', txtColor = '#1a1a1a' }) => (
+    <div onClick={onClick} style={{ display: 'flex', alignItems: 'center', padding: '12px 15px', borderBottom: '1px solid #ffe0a0', cursor: 'pointer' }}>
       <div style={{ width: 32, height: 32, borderRadius: '50%', background: iconBg, border: `1px solid ${iconBorder}`, display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: 15, fontSize: 16 }}>
         {icon}
       </div>
       <div style={{ fontSize: 14, color: txtColor, fontWeight: 600, flex: 1 }}>{label}</div>
-      <div style={{ color: '#f0a500', fontSize: 12 }}>❯</div>
+      <div style={{ color: '#e8a000', fontSize: 12 }}>❯</div>
     </div>
   );
 
@@ -46,38 +46,38 @@ export default function Drawer({ user, onClose, onNav, onLogout }) {
       <div onClick={onClose} style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.7)', zIndex: 1000 }} />
       
       {/* Side Menu Panel */}
-      <div style={{ position: 'fixed', top: 0, left: 0, bottom: 0, width: '280px', background: '#06150c', zIndex: 1001, overflowY: 'auto', borderRight: '1px solid #1a4a2a', color: '#fff' }}>
+      <div style={{ position: 'fixed', top: 0, left: 0, bottom: 0, width: '280px', background: '#fff8ee', zIndex: 1001, overflowY: 'auto', borderRight: '1px solid #f5d080', color: '#1a1a1a' }}>
         
         {/* ─── USER INFO HEADER ─── */}
-        <div style={{ padding: '20px 15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #1a4a2a', background: 'linear-gradient(135deg, #091f13, #0d3520)' }}>
+        <div style={{ padding: '20px 15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid #1a4a2a', background: 'linear-gradient(135deg, #e8a000, #f5a623)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <img 
               src={getAvatarUrl()} 
               onError={(e) => { e.target.onerror = null; e.target.src = defaultAvatar; }} 
               alt="Avatar"
-              style={{ width: 48, height: 48, borderRadius: '50%', objectFit: 'cover', border: '2px solid #f0a500', boxShadow: '0 2px 8px rgba(0,0,0,0.5)', background: '#0a1d13' }} 
+              style={{ width: 48, height: 48, borderRadius: '50%', objectFit: 'cover', border: '2px solid #fff', boxShadow: '0 2px 8px rgba(0,0,0,0.3)', background: '#fff8ee' }} 
             />
             <div>
               <div style={{ fontWeight: '900', fontSize: 16, color: '#fff', letterSpacing: '0.5px' }}>{user?.name || 'Vikas Verma'}</div>
-              <div style={{ fontSize: 11, color: '#aaa', marginTop: 2 }}>+91 {user?.mobile || '6375334550'}</div>
+              <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.8)', marginTop: 2 }}>+91 {user?.mobile || '6375334550'}</div>
             </div>
           </div>
-          <div onClick={onClose} style={{ fontSize: 22, color: '#f0a500', cursor: 'pointer', padding: '0 5px' }}>✕</div>
+          <div onClick={onClose} style={{ fontSize: 22, color: '#fff', cursor: 'pointer', padding: '0 5px' }}>✕</div>
         </div>
 
         {/* ─── QUICK BUTTONS (ADD FUND / WITHDRAW / BIDS) ─── */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '15px 10px', borderBottom: '1px solid #1a4a2a', background: '#0a1d13' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', padding: '15px 10px', borderBottom: '1px solid #f5d080', background: '#fff3e0' }}>
           <div onClick={() => { onNav('add'); onClose(); }} style={{ flex: 1, textAlign: 'center', cursor: 'pointer' }}>
             <div style={{ background: 'rgba(34, 197, 94, 0.1)', border: '1px solid #22c55e', width: 42, height: 42, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 6px', fontSize: 20 }}>💰</div>
-            <div style={{ fontSize: 11, color: '#f0a500', fontWeight: 800 }}>Add Fund</div>
+            <div style={{ fontSize: 11, color: '#b87200', fontWeight: 800 }}>Add Fund</div>
           </div>
           <div onClick={() => { onNav('with'); onClose(); }} style={{ flex: 1, textAlign: 'center', cursor: 'pointer' }}>
             <div style={{ background: 'rgba(239, 68, 68, 0.1)', border: '1px solid #ef4444', width: 42, height: 42, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 6px', fontSize: 20 }}>💸</div>
-            <div style={{ fontSize: 11, color: '#f0a500', fontWeight: 800 }}>Withdraw</div>
+            <div style={{ fontSize: 11, color: '#b87200', fontWeight: 800 }}>Withdraw</div>
           </div>
           <div onClick={() => { onNav('bids'); onClose(); }} style={{ flex: 1, textAlign: 'center', cursor: 'pointer' }}>
             <div style={{ background: 'rgba(59, 130, 246, 0.1)', border: '1px solid #3b82f6', width: 42, height: 42, borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 6px', fontSize: 20 }}>🎯</div>
-            <div style={{ fontSize: 11, color: '#f0a500', fontWeight: 800 }}>My Bids</div>
+            <div style={{ fontSize: 11, color: '#b87200', fontWeight: 800 }}>My Bids</div>
           </div>
         </div>
 
